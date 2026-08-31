@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo — Um Pouco de Nós | Karolina & Igo</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FAF8F5',
+            offwhite: '#F3EFEA',
+            champagne: '#E8DFD8',
+            'champagne-gold': '#C5A880',
+            'olive-dark': '#4F5D4E',
+            espresso: '#25201E',
+            stone: '#6E675F',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+            script: ['"Pinyon Script"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .admin-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      box-shadow: 0 15px 35px -10px rgba(40, 30, 20, 0.05);
+    }
+    .dropzone {
+      border: 2px dashed rgba(197, 168, 128, 0.5);
+      transition: all 0.3s ease;
+      background: #FAF8F5;
+    }
+    .dropzone.dragover {
+      border-color: #C5A880;
+      background: #F3EFEA;
+      transform: scale(1.01);
+    }
+  </style>
+</head>
+<body class="bg-ivory text-espresso font-sans antialiased min-h-screen">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header -->
+  <header class="bg-white border-b border-champagne-gold/20 sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="font-serif text-2xl tracking-widest text-espresso font-light">
+          K <span class="font-script text-champagne-gold mx-1 text-3xl">&</span> I
+        </span>
+        <span class="text-xs uppercase tracking-widest text-stone/80 pl-3 border-l border-champagne-gold/30 hidden sm:inline">
+          Painel do Álbum
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <a href="/" target="_blank" class="text-xs uppercase tracking-wider text-stone hover:text-espresso transition-colors">
+          Ver Site Público ↗
+        </a>
+        <button id="logout-btn" class="hidden text-xs uppercase tracking-wider text-red-700/80 hover:text-red-800 transition-colors pl-3 border-l border-champagne-gold/30">
+          Sair
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =========================================================================
+       1. TELA DE LOGIN (QUANDO NÃO AUTENTICADO)
+       ========================================================================= -->
+  <main id="login-section" class="max-w-md mx-auto px-6 py-20">
+    <div class="admin-card p-8 sm:p-10 rounded-sm text-center">
+      
+      <div class="w-14 h-14 rounded-full border border-champagne-gold mx-auto mb-6 flex items-center justify-center text-champagne-gold">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+      </div>
+
+      <h1 class="font-serif text-3xl text-espresso font-light italic mb-2">
+        Acesso ao Álbum
+      </h1>
+      <p class="text-xs text-stone font-light mb-8">
+        Digite a senha de administração para gerenciar as fotos da seção <strong>Um Pouco de Nós</strong>.
+      </p>
+
+      <form id="login-form" class="space-y-4 text-left">
+        <div>
+          <label class="rsvp-label" for="password-input">Senha de Administração</label>
+          <input type="password" id="password-input" required placeholder="Digite a senha..." class="rsvp-input text-center">
+        </div>
+
+        <button type="submit" id="login-btn" class="btn-luxury btn-luxury-solid w-full py-3.5 text-xs">
+          <span>Entrar no Painel</span>
+        </button>
+      </form>
+
+    </div>
+  </main>
+
+
+  <!-- =========================================================================
+       2. DASHBOARD ADMINISTRATIVO (QUANDO AUTENTICADO)
+       ========================================================================= -->
+  <main id="dashboard-section" class="hidden max-w-5xl mx-auto px-6 py-12 space-y-12">
+    
+    <!-- Title and Subtitle -->
+    <div class="text-center mb-8">
+      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-1">
+        Gerenciador de Momentos
+      </span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic">
+        Álbum “Um Pouco de Nós”
+      </h1>
+    </div>
+
+    <!-- Form: Adicionar Novo Momento -->
+    <div class="admin-card p-6 sm:p-10 rounded-sm">
+      <div class="border-b border-champagne-gold/20 pb-4 mb-6 flex items-center justify-between">
+        <h2 class="font-serif text-2xl text-espresso font-medium flex items-center gap-2">
+          <span>Adicionar Novo Momento</span>
+        </h2>
+        <span class="text-[11px] uppercase tracking-widest text-stone">Upload Direto Vercel Blob</span>
+      </div>
+
+      <form id="add-moment-form" class="space-y-6">
+        
+        <!-- Image Drag & Drop -->
+        <div>
+          <label class="rsvp-label">Fotografia do Momento *</label>
+          <div id="dropzone" class="dropzone p-8 text-center cursor-pointer rounded-sm">
+            <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/heic" class="hidden">
+            
+            <div id="dropzone-prompt">
+              <div class="w-12 h-12 rounded-full border border-champagne-gold/40 mx-auto mb-3 flex items-center justify-center text-champagne-gold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <p class="text-sm font-medium text-espresso mb-1">
+                Clique para escolher ou arraste a foto aqui
+              </p>
+              <p class="text-xs text-stone font-light">
+                JPG, PNG ou WEBP em alta qualidade (máx. 25MB)
+              </p>
+            </div>
+
+            <!-- Preview State -->
+            <div id="dropzone-preview" class="hidden relative max-w-xs mx-auto">
+              <img id="preview-img" src="" alt="Prévia" class="rounded border border-champagne-gold/40 max-h-64 object-cover mx-auto shadow-sm">
+              <button type="button" id="remove-file-btn" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1.5 shadow hover:bg-red-700 transition-colors" title="Trocar imagem">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Moment Title -->
+          <div>
+            <label for="moment-title" class="rsvp-label">Título do Momento (Opcional)</label>
+            <input type="text" id="moment-title" placeholder="Ex: Nosso primeiro passeio, Viagem inesquecível..." class="rsvp-input">
+          </div>
+
+          <!-- Moment Date / Year -->
+          <div>
+            <label for="moment-date" class="rsvp-label">Ano / Data (Opcional)</label>
+            <input type="text" id="moment-date" placeholder="Ex: 2021, Outubro de 2022..." class="rsvp-input">
+          </div>
+        </div>
+
+        <!-- Moment Caption -->
+        <div>
+          <label for="moment-caption" class="rsvp-label">Legenda / Pequeno Texto da História (Opcional)</label>
+          <textarea id="moment-caption" rows="3" placeholder="Escreva sobre esse momento, uma frase de carinho ou memória especial..." class="rsvp-input resize-none"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2 flex items-center justify-between">
+          <span id="upload-status" class="text-xs text-stone font-light italic"></span>
+          <button type="submit" id="submit-moment-btn" class="btn-luxury btn-luxury-solid py-3.5 px-8 text-xs">
+            <span id="submit-btn-text">Publicar no Álbum</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+
+    <!-- =========================================================================
+         LISTA DE MOMENTOS JÁ CADASTRADOS (ORDENAÇÃO & EXCLUSÃO)
+         ========================================================================= -->
+    <div class="admin-card p-6 sm:p-10 rounded-sm">
+      <div class="border-b border-champagne-gold/20 pb-4 mb-6 flex items-center justify-between">
+        <div>
+          <h2 class="font-serif text-2xl text-espresso font-medium">
+            Momentos Publicados no Álbum
+          </h2>
+          <p class="text-xs text-stone font-light">
+            Use as setas para reorganizar a ordem de exibição no site.
+          </p>
+        </div>
+        <span id="moments-count-badge" class="px-3 py-1 bg-offwhite border border-champagne-gold/30 text-xs text-espresso rounded-full">
+          0 fotos
+        </span>
+      </div>
+
+      <!-- Moments List -->
+      <div id="moments-list" class="space-y-4">
+        <!-- Rendered dynamically -->
+        <div class="text-center py-12 text-stone font-light text-sm">
+          Carregando momentos do álbum...
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- =========================================================================
+       MODAL DE EDIÇÃO DE MOMENTO
+       ========================================================================= -->
+  <div id="edit-modal" class="custom-modal" role="dialog" aria-modal="true">
+    <div class="custom-modal-content text-left max-w-lg">
+      <button id="close-edit-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+      
+      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-1">
+        Edição
+      </span>
+      <h3 class="font-serif text-2xl text-espresso font-light italic mb-6">
+        Editar Momento
+      </h3>
+
+      <form id="edit-moment-form" class="space-y-4">
+        <input type="hidden" id="edit-moment-id">
+        
+        <div>
+          <label for="edit-title" class="rsvp-label">Título do Momento</label>
+          <input type="text" id="edit-title" class="rsvp-input">
+        </div>
+
+        <div>
+          <label for="edit-date" class="rsvp-label">Ano / Data</label>
+          <input type="text" id="edit-date" class="rsvp-input">
+        </div>
+
+        <div>
+          <label for="edit-caption" class="rsvp-label">Legenda</label>
+          <textarea id="edit-caption" rows="3" class="rsvp-input resize-none"></textarea>
+        </div>
+
+        <div class="pt-4 flex items-center justify-end space-x-3">
+          <button type="button" onclick="document.getElementById('edit-modal').classList.remove('active')" class="text-xs uppercase tracking-widest text-stone hover:text-espresso py-2 px-4">
+            Cancelar
+          </button>
+          <button type="submit" id="save-edit-btn" class="btn-luxury btn-luxury-solid py-2.5 px-6 text-xs">
+            <span>Salvar Alterações</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

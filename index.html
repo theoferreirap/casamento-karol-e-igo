@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karolina & Igo — Celebração de Casamento</title>
+  <meta name="description" content="Celebração do casamento de Karolina & Igo. Conheça nossa história, confirme sua presença e celebre conosco esse momento inesquecível.">
+  
+  <!-- OpenGraph Meta Tags for Social & WhatsApp Sharing -->
+  <meta property="og:title" content="Karolina & Igo — Nosso Casamento">
+  <meta property="og:description" content="24 de Outubro de 2026 • Contamos com a sua presença para celebrar nosso amor.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN for utility grid and spacing -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FAF8F5',
+            offwhite: '#F4EFEB',
+            champagne: '#E4D7C5',
+            'champagne-gold': '#C5A880',
+            'gold-hover': '#A07F52',
+            'olive-muted': '#626F5E',
+            'olive-dark': '#3F4A3B',
+            espresso: '#25201E',
+            charcoal: '#36302D',
+            stone: '#8E867E'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Luxury Editorial Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-champagne selection:text-espresso">
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="luxury-nav flex items-center justify-between">
+    <!-- Monogram / Brand -->
+    <a href="#hero" class="monogram-badge monogram-brand font-serif text-2xl tracking-widest font-light">
+      K <span class="font-script text-champagne-gold mx-1 text-3xl">&</span> I
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center space-x-7">
+      <a href="#hero" class="nav-link">Início</a>
+      <a href="#historia" class="nav-link">Nossa História</a>
+      <a href="#um-pouco-de-nos" class="nav-link">Um Pouco de Nós</a>
+      <a href="#cerimonia" class="nav-link">O Nosso Sim</a>
+      <a href="#rsvp" class="nav-link">RSVP</a>
+      <a href="#presentes" class="nav-link">Presentes</a>
+      <a href="#informacoes" class="nav-link">Informações</a>
+      <a href="#galeria" class="nav-link">Galeria</a>
+    </nav>
+
+    <!-- Header Actions (Audio toggle & Mobile Menu) -->
+    <div class="flex items-center space-x-4">
+      <!-- Background Audio Element -->
+      <audio id="bg-audio" loop preload="auto">
+        <source src="2-metades.mpeg" type="audio/mpeg">
+        <source src="2-metades.mp3" type="audio/mpeg">
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- Ambient Audio Toggle Button -->
+      <button id="ambient-audio-toggle" class="audio-player-btn" title="Tocar Duas Metades — Jorge & Mateus">
+        <div id="music-waves" class="music-waves paused">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span id="audio-status-text" class="hidden sm:inline">Duas Metades — Jorge & Mateus</span>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" class="mobile-menu-btn lg:hidden p-2 focus:outline-none" aria-label="Abrir Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Navigation Drawer -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+    <button id="mobile-menu-close" class="absolute top-6 right-6 p-3 text-stone hover:text-espresso" aria-label="Fechar Menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <div class="monogram-badge font-serif text-3xl tracking-widest text-espresso font-light mb-8">
+      K <span class="font-script text-champagne-gold mx-1 text-4xl">&</span> I
+    </div>
+
+    <nav class="flex flex-col items-center space-y-4 text-center">
+      <a href="#hero" class="mobile-nav-link">Início</a>
+      <a href="#historia" class="mobile-nav-link">Nossa História</a>
+      <a href="#um-pouco-de-nos" class="mobile-nav-link">Um Pouco de Nós</a>
+      <a href="#cerimonia" class="mobile-nav-link">O Nosso Sim</a>
+      <a href="#rsvp" class="mobile-nav-link">Confirmar Presença</a>
+      <a href="#presentes" class="mobile-nav-link">Lista de Presentes</a>
+      <a href="#informacoes" class="mobile-nav-link">Para Você Saber</a>
+      <a href="#galeria" class="mobile-nav-link">Galeria</a>
+    </nav>
+    <div class="mt-8 text-xs tracking-widest uppercase text-stone font-light">
+      24 de Outubro de 2026
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       1. HERO / PRIMEIRA TELA (EDITORIAL COVER COM VÍDEO CINEMATOGRÁFICO)
+       ========================================================================= -->
+  <section id="hero" class="hero-section">
+    <!-- Background Video with Graceful Poster Fallback -->
+    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85" class="hero-video" id="hero-video">
+      <source src="video.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-on-their-wedding-day-42352-large.mp4" type="video/mp4">
+    </video>
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal-on-scroll">
+      <!-- Monogram -->
+      <div class="font-serif text-lg tracking-widest uppercase text-champagne mb-4">
+        <span class="inline-block border-t border-b border-champagne-gold/40 py-1 px-4">
+          Save the Date
+        </span>
+      </div>
+
+      <!-- Names -->
+      <h1 class="hero-title font-serif italic text-white mb-2">
+        Karolina <span class="font-script font-normal text-champagne text-5xl sm:text-7xl md:text-8xl mx-2">&</span> Igo
+      </h1>
+
+      <p class="hero-badge font-light mb-6 tracking-ultra">
+        Vamos nos casar
+      </p>
+
+      <!-- Divider with delicate botanical ornament -->
+      <div class="luxury-divider my-4">
+        <span class="font-script text-champagne text-2xl">amor & união</span>
+      </div>
+
+      <!-- Date & Venue -->
+      <div class="hero-date text-champagne/90 mb-10 font-light">
+        24 de Outubro de 2026
+        <span class="block text-xs sm:text-sm tracking-widest text-stone/80 mt-1">Serra da Cantareira — São Paulo</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#rsvp" class="btn-luxury btn-luxury-light">
+          <span>Confirmar Presença</span>
+        </a>
+        <a href="#historia" class="btn-luxury text-xs py-3 px-6 text-white border-white/40 hover:border-white">
+          <span>Nossa História</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Video Play/Pause Floating Controller -->
+    <div class="absolute bottom-6 right-6 z-20 flex items-center gap-2">
+      <button id="hero-video-toggle" class="p-2.5 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md text-white/80 hover:text-white border border-white/20 transition-all text-xs" title="Pausar / Reproduzir Vídeo">
+        <svg id="video-play-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <svg id="video-pause-icon" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       2. CONTAGEM REGRESSIVA ("O Grande Dia") com Flores Delicadas
+       ========================================================================= -->
+  <section class="py-24 grande-dia-section relative border-b border-champagne-gold/20">
+    
+    <!-- Delicate Botanical Floral Corner Ornaments -->
+    <svg class="floral-decor floral-decor-tl" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5,145 C30,105 65,75 130,20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M45,100 C60,88 72,98 67,110 C62,122 50,112 45,100 Z" fill="currentColor" fill-opacity="0.25"/>
+      <path d="M72,75 C87,63 99,73 94,85 C89,97 77,87 72,75 Z" fill="currentColor" fill-opacity="0.25"/>
+      <path d="M98,50 C113,38 125,48 120,60 C115,72 103,62 98,50 Z" fill="currentColor" fill-opacity="0.25"/>
+      <!-- Delicately sketched blossom -->
+      <circle cx="132" cy="18" r="8" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(20 132 18)"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(80 132 18)"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(140 132 18)"/>
+    </svg>
+
+    <svg class="floral-decor floral-decor-br" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5,145 C30,105 65,75 130,20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M45,100 C60,88 72,98 67,110 C62,122 50,112 45,100 Z" fill="currentColor" fill-opacity="0.25"/>
+      <path d="M72,75 C87,63 99,73 94,85 C89,97 77,87 72,75 Z" fill="currentColor" fill-opacity="0.25"/>
+      <path d="M98,50 C113,38 125,48 120,60 C115,72 103,62 98,50 Z" fill="currentColor" fill-opacity="0.25"/>
+      <circle cx="132" cy="18" r="8" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(20 132 18)"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(80 132 18)"/>
+      <ellipse cx="132" cy="18" rx="4" ry="10" fill="currentColor" fill-opacity="0.2" transform="rotate(140 132 18)"/>
+    </svg>
+
+    <div class="max-w-5xl mx-auto px-6 text-center grande-dia-content reveal-on-scroll">
+      
+      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+        O Grande Dia
+      </span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-espresso font-light italic mb-4">
+        Contando os dias para o nosso sim
+      </h2>
+      <p class="text-stone font-light text-sm max-w-md mx-auto mb-12">
+        Cada segundo nos aproxima do momento mais especial das nossas vidas.
+      </p>
+
+      <!-- Countdown Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+        
+        <div class="countdown-box">
+          <div id="cd-days" class="countdown-num">00</div>
+          <div class="countdown-label">Dias</div>
+        </div>
+
+        <div class="countdown-box">
+          <div id="cd-hours" class="countdown-num">00</div>
+          <div class="countdown-label">Horas</div>
+        </div>
+
+        <div class="countdown-box">
+          <div id="cd-mins" class="countdown-num">00</div>
+          <div class="countdown-label">Minutos</div>
+        </div>
+
+        <div class="countdown-box">
+          <div id="cd-secs" class="countdown-num">00</div>
+          <div class="countdown-label">Segundos</div>
+        </div>
+
+      </div>
+
+      <div class="mt-12">
+        <button id="download-ical" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider-luxury text-stone hover:text-espresso transition-colors">
+          <svg class="w-4 h-4 text-champagne-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          Adicionar ao Calendário (.ics)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. NOSSA HISTÓRIA (EDITORIAL STORY)
+       ========================================================================= -->
+  <section id="historia" class="py-28 bg-offwhite/50 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-20 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          A História de Karol & Igo
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso font-light italic">
+          Nossa História
+        </h2>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">amor & destino</span>
+        </div>
+      </div>
+
+      <!-- Story Part 1: O Encontro no Dia dos Namorados -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">
+        <div class="lg:col-span-6 reveal-on-scroll">
+          <div class="editorial-card p-3">
+            <div class="editorial-img-container aspect-[4/5]">
+              <img src="historia-1.jpg" alt="O Primeiro Olhar de Karol e Igo" class="object-cover w-full h-full" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6 reveal-on-scroll delay-100">
+          <span class="text-xs uppercase tracking-widest text-stone block mb-3">Dia dos Namorados — O Encontro Inesperado</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-espresso font-normal mb-6">
+            Tudo começou no dia mais apaixonado do ano.
+          </h3>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-4">
+            Karol foi até a padaria apenas para tomar um caldo e comer um doce. Ela só não sabia que, naquele dia, encontraria alguém que mudaria sua história para sempre. Igo estava lá.
+          </p>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-6">
+            E bastou um único olhar para que algo diferente acontecesse. Um encanto imediato, daqueles que a gente não sabe explicar, mas sente no fundo da alma que existe.
+          </p>
+          <div class="p-6 bg-ivory border-l-2 border-champagne-gold">
+            <p class="quote-editorial">
+              “Talvez Karol tenha ido apenas para tomar um caldo e comer um doce. Mas o destino tinha outros planos: um amor e uma vida inteira juntos.”
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Part 2: A Conexão e a Certeza -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center flex-col-reverse lg:flex-row mb-28">
+        <div class="lg:col-span-6 order-2 lg:order-1 reveal-on-scroll">
+          <span class="text-xs uppercase tracking-widest text-stone block mb-3">A Conexão — Quando Dois Mundos se Encontram</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-espresso font-normal mb-6">
+            Leve, natural e, ao mesmo tempo, intenso.
+          </h3>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-4">
+            Depois daquele primeiro encontro, Karol e Igo se adicionaram no Instagram, começaram a conversar e, pouco tempo depois, marcaram de se ver. E foi aí que a história realmente começou.
+          </p>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-6">
+            Depois daquele dia, nunca mais se separaram. Vieram os dias juntos, as conversas intermináveis, os planos, as risadas e os sonhos compartilhados. No meio de tudo isso, uma certeza foi crescendo: eles tinham encontrado um no outro quem estavam esperando há muito tempo.
+          </p>
+          <div class="p-6 bg-ivory border-l-2 border-champagne-gold">
+            <p class="quote-editorial">
+              “Como se os dois já soubessem, mesmo sem dizer, que havia algo sagrado e único acontecendo.”
+            </p>
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 reveal-on-scroll delay-100">
+          <div class="editorial-card p-3">
+            <div class="editorial-img-container aspect-[4/5]">
+              <img src="historia-2.jpg" alt="Momentos e Risadas Compartilhadas" class="object-cover w-full h-full" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Part 3: O Pedido de Casamento e o Nosso Sim -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-6 reveal-on-scroll">
+          <div class="editorial-card p-3">
+            <div class="editorial-img-container aspect-[4/5]">
+              <img src="historia-3.jpg" alt="O Pedido de Casamento" class="object-cover w-full h-full" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6 reveal-on-scroll delay-100">
+          <span class="text-xs uppercase tracking-widest text-stone block mb-3">O Pedido — A Certeza do Amor</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-espresso font-normal mb-6">
+            O “sim” nunca foi uma dúvida.
+          </h3>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-4">
+            Até que veio o pedido de casamento. 💍
+          </p>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-6">
+            Para Karol e Igo, o “sim” nunca foi uma dúvida. Foi apenas a confirmação de algo que os dois já sentiam há muito tempo. Porque, desde o começo, parecia que a vida só estava esperando o momento certo para cruzar seus caminhos.
+          </p>
+          <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-6">
+            E foi assim que, em um dia tão especial, Karol encontrou Igo. E, desde aquele dia, eles escolheram caminhar juntos, para sempre. ❤️
+          </p>
+          <div class="p-6 bg-ivory border-l-2 border-champagne-gold">
+            <p class="quote-editorial">
+              “E, desde aquele dia, escolhemos caminhar juntos, lado a lado, para sempre.”
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       ÁLBUM AFETIVO ("Um Pouco de Nós")
+       ========================================================================= -->
+  <section id="um-pouco-de-nos" class="py-28 antes-do-sim-section relative border-t border-champagne-gold/20">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-20 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          Álbum Afetivo
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso font-light italic mb-4">
+          Um Pouco de Nós
+        </h2>
+        <p class="text-stone font-light text-sm max-w-lg mx-auto">
+          Fragmentos de amor, viagens e cumplicidade que construíram a nossa história até aqui.
+        </p>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">momentos</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Moments Container -->
+      <div id="moments-container" class="antes-do-sim-grid">
+        <!-- Rendered dynamically from /api/moments with initial pre-rendered state -->
+        <div class="moment-entry reveal-on-scroll">
+          <div class="moment-img-col">
+            <div class="moment-img-frame" onclick="openLightboxFromMoment('historia-1.jpg')">
+              <div class="moment-img-wrapper aspect-[4/5]">
+                <img src="historia-1.jpg" alt="O Começo de Tudo" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="moment-text-col">
+            <span class="moment-badge-year">2021 • O Começo</span>
+            <h3 class="moment-title-text">O Primeiro Olhar</h3>
+            <p class="moment-caption-text">
+              Tudo começou no Dia dos Namorados. Um caldo, um doce e um olhar que mudou tudo para sempre.
+            </p>
+          </div>
+        </div>
+
+        <div class="moment-entry reveal-on-scroll">
+          <div class="moment-img-col">
+            <div class="moment-img-frame" onclick="openLightboxFromMoment('historia-2.jpg')">
+              <div class="moment-img-wrapper aspect-[4/5]">
+                <img src="historia-2.jpg" alt="Nossos Momentos" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="moment-text-col">
+            <span class="moment-badge-year">2022 — 2023 • Cumplicidade</span>
+            <h3 class="moment-title-text">Nossos Momentos & Sorrisos</h3>
+            <p class="moment-caption-text">
+              Conversas que não tinham fim, risadas sinceras e a certeza de que caminhávamos na mesma direção.
+            </p>
+          </div>
+        </div>
+
+        <div class="moment-entry reveal-on-scroll">
+          <div class="moment-img-col">
+            <div class="moment-img-frame" onclick="openLightboxFromMoment('historia-3.jpg')">
+              <div class="moment-img-wrapper aspect-[4/5]">
+                <img src="historia-3.jpg" alt="O Pedido" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="moment-text-col">
+            <span class="moment-badge-year">2024 • A Certeza</span>
+            <h3 class="moment-title-text">O Pedido & O Nosso Sim</h3>
+            <p class="moment-caption-text">
+              Quando o amor transbordou e a resposta mais fácil e bonita de nossas vidas foi dita: Sim, para sempre! 💍
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. CERIMÔNIA ("O nosso sim")
+       ========================================================================= -->
+  <section id="cerimonia" class="py-28 bg-ivory relative">
+    <div class="max-w-5xl mx-auto px-6">
+      
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          O Momento Sagrado
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic">
+          O Nosso Sim
+        </h2>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">cerimônia</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal-on-scroll">
+        
+        <!-- Ceremony Details Card -->
+        <div class="lg:col-span-7 event-card flex flex-col justify-between">
+          <div>
+            <div class="inline-block px-3 py-1 bg-offwhite border border-champagne-gold/30 text-xs uppercase tracking-widest text-espresso font-medium mb-6">
+              Cerimônia Religiosa & Votos
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-stone block mb-1">Data</span>
+                <p class="font-serif text-xl sm:text-2xl text-espresso font-medium">24 de Outubro, 2026</p>
+                <p class="text-xs text-stone font-light">Sábado</p>
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-widest text-stone block mb-1">Horário</span>
+                <p class="font-serif text-xl sm:text-2xl text-espresso font-medium">16:30 Horas</p>
+                <p class="text-xs text-stone font-light">Recomendamos pontualidade</p>
+              </div>
+            </div>
+
+            <div class="border-t border-champagne-gold/20 pt-6 mb-8">
+              <span class="text-xs uppercase tracking-widest text-stone block mb-1">Local</span>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2">Capela Villa Felicitá</h3>
+              <p class="text-stone font-light text-sm leading-relaxed">
+                Alameda das Hortênsias, 1.200 — Serra da Cantareira, SP<br>
+                <span class="text-xs text-stone/80">Estacionamento com serviço de valet cortesia na entrada principal.</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-4 border-t border-champagne-gold/20">
+            <a href="https://maps.google.com/?q=Serra+da+Cantareira+SP" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-luxury-solid text-xs py-3 px-6">
+              <span>Ver no Google Maps</span>
+            </a>
+            <a id="add-to-gcal" href="#" class="btn-luxury text-xs py-3 px-6">
+              <span>Adicionar ao Google Agenda</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ceremony Editorial Image -->
+        <div class="lg:col-span-5 editorial-card p-3">
+          <div class="editorial-img-container h-full min-h-[340px]">
+            <img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1000&q=80" alt="Capela Villa Felicitá" class="h-full object-cover">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. CONFIRMAÇÃO DE PRESENÇA – RSVP ("Esperamos você")
+       ========================================================================= -->
+  <section id="rsvp" class="py-28 bg-ivory relative">
+    <div class="max-w-3xl mx-auto px-6">
+      
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          R.S.V.P.
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
+          Esperamos Você
+        </h2>
+        <p class="text-stone font-light text-sm max-w-lg mx-auto leading-relaxed">
+          Sua presença tornará esse momento ainda mais especial. Por favor, confirme sua presença até o dia <strong class="font-medium text-espresso">15 de Setembro de 2026</strong>.
+        </p>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">confirmação</span>
+        </div>
+      </div>
+
+      <!-- RSVP Form Container -->
+      <div class="rsvp-form-container reveal-on-scroll">
+        <form id="rsvp-form" class="space-y-6">
+          
+          <!-- Full Name -->
+          <div>
+            <label for="guest-name" class="rsvp-label">Nome Completo *</label>
+            <input type="text" id="guest-name" name="guest_name" required placeholder="Como consta no convite" class="rsvp-input">
+          </div>
+
+          <!-- Phone / WhatsApp -->
+          <div>
+            <label for="guest-phone" class="rsvp-label">Telefone / WhatsApp *</label>
+            <input type="tel" id="guest-phone" name="guest_phone" required placeholder="(11) 99999-9999" class="rsvp-input">
+          </div>
+
+          <!-- Attendance Option (Sim / Não) -->
+          <div>
+            <label class="rsvp-label">Você comparecerá ao casamento? *</label>
+            <div class="rsvp-radio-group">
+              <label class="rsvp-radio-card active" id="radio-card-yes">
+                <input type="radio" name="attending" value="sim" checked class="mr-2">
+                <span class="text-xs uppercase tracking-widest font-medium text-espresso">Sim, com certeza!</span>
+              </label>
+              <label class="rsvp-radio-card" id="radio-card-no">
+                <input type="radio" name="attending" value="nao" class="mr-2">
+                <span class="text-xs uppercase tracking-widest font-medium text-stone">Infelizmente não</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Sweet Message -->
+          <div>
+            <label for="guest-message" class="rsvp-label">Mensagem para os Noivos (Opcional)</label>
+            <textarea id="guest-message" name="guest_message" rows="3" placeholder="Deixe uma palavra de carinho..." class="rsvp-input resize-none"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4 text-center">
+            <button type="submit" class="btn-luxury btn-luxury-solid w-full sm:w-auto py-4 px-12">
+              <span>Confirmar Presença</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       7. LISTA DE PRESENTES & EXPERIÊNCIAS ("Lista de Presentes")
+       ========================================================================= -->
+  <section id="presentes" class="py-28 bg-offwhite/50 relative border-t border-champagne-gold/20">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          Carinho & Memórias
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
+          Lista de Presentes
+        </h2>
+        <p class="text-stone font-light text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          O maior presente será compartilhar esse momento com vocês. Para aqueles que desejarem nos presentear, preparamos algumas opções e experiências de lua de mel com muito carinho.
+        </p>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">experiências</span>
+        </div>
+      </div>
+
+      <!-- Gifts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-on-scroll">
+        
+        <!-- Gift 1 -->
+        <div class="gift-card">
+          <div class="gift-img-box">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Jantar Romântico na Costa Amalfitana" loading="lazy">
+            <span class="gift-badge">Lua de Mel</span>
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Jantar à Luz de Velas em Positano</h3>
+              <p class="text-xs text-stone font-light mb-4">Um brinde inesquecível com vista para a Costa Amalfitana.</p>
+            </div>
+            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
+              <span class="font-serif text-lg text-espresso font-medium">R$ 480,00</span>
+              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Jantar à Luz de Velas em Positano" data-gift-value="R$ 480,00">
+                <span>Presentear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift 2 -->
+        <div class="gift-card">
+          <div class="gift-img-box">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Passeio de Barco ao Pôr do Sol" loading="lazy">
+            <span class="gift-badge">Experiência</span>
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Passeio de Barco ao Pôr do Sol</h3>
+              <p class="text-xs text-stone font-light mb-4">Navegação pelas águas cristalinas de Capri ao entardecer.</p>
+            </div>
+            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
+              <span class="font-serif text-lg text-espresso font-medium">R$ 650,00</span>
+              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Passeio de Barco ao Pôr do Sol" data-gift-value="R$ 650,00">
+                <span>Presentear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift 3 -->
+        <div class="gift-card">
+          <div class="gift-img-box">
+            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" alt="Café da Manhã de Recém-Casados" loading="lazy">
+            <span class="gift-badge">Romance</span>
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Café da Manhã dos Recém-Casados</h3>
+              <p class="text-xs text-stone font-light mb-4">Manhã especial no quarto com frutas frescas e espumante.</p>
+            </div>
+            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
+              <span class="font-serif text-lg text-espresso font-medium">R$ 320,00</span>
+              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Café da Manhã dos Recém-Casados" data-gift-value="R$ 320,00">
+                <span>Presentear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift 4 -->
+        <div class="gift-card">
+          <div class="gift-img-box">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Ajuda para Nova Casa" loading="lazy">
+            <span class="gift-badge">Nosso Lar</span>
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Cota para a Nossa Nova Casa</h3>
+              <p class="text-xs text-stone font-light mb-4">Contribuição carinhosa para montarmos o nosso primeiro lar.</p>
+            </div>
+            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
+              <span class="font-serif text-lg text-espresso font-medium">R$ 800,00</span>
+              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Cota para a Nossa Nova Casa" data-gift-value="R$ 800,00">
+                <span>Presentear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift 5 -->
+        <div class="gift-card">
+          <div class="gift-img-box">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa a Dois" loading="lazy">
+            <span class="gift-badge">Bem-Estar</span>
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Dia de Spa & Relaxamento a Dois</h3>
+              <p class="text-xs text-stone font-light mb-4">Massagem relaxante e banho de imersão pós-casamento.</p>
+            </div>
+            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
+              <span class="font-serif text-lg text-espresso font-medium">R$ 550,00</span>
+              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Dia de Spa & Relaxamento a Dois" data-gift-value="R$ 550,00">
+                <span>Presentear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift 6 (Custom Value) -->
+        <div class="gift-card bg-ivory border-dashed border-champagne-gold/40">
+          <div class="p-8 flex flex-col justify-between flex-grow text-center">
+            <div>
+              <div class="w-12 h-12 rounded-full border border-champagne-gold mx-auto mb-4 flex items-center justify-center text-champagne-gold">
+                <span class="font-serif text-xl">❦</span>
+              </div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2">Contribuição Livre</h3>
+              <p class="text-xs text-stone font-light mb-6">
+                Fique à vontade para presentear com o valor que seu coração desejar via Pix.
+              </p>
+            </div>
+            <div>
+              <button class="btn-gift btn-luxury btn-luxury-solid text-xs py-3 px-6 w-full" data-gift-title="Contribuição Livre aos Noivos" data-gift-value="Valor Livre">
+                <span>Presentear via Pix</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       9. INFORMAÇÕES IMPORTANTES ("Para você saber")
+       ========================================================================= -->
+  <section id="informacoes" class="py-28 bg-offwhite/50 relative border-t border-champagne-gold/20">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          Orientações aos Convidados
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
+          Para Você Saber
+        </h2>
+        <p class="text-stone font-light text-sm max-w-md mx-auto">
+          Preparamos algumas dicas e informações práticas para o seu conforto.
+        </p>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">detalhes</span>
+        </div>
+      </div>
+
+      <!-- Info Cards Grid (2 Essential Guidance Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal-on-scroll">
+        
+        <!-- Info 1: Pontualidade -->
+        <div class="info-card p-8 sm:p-10 text-center">
+          <div class="info-icon-wrapper mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium mb-3">Pontualidade</h3>
+          <p class="text-sm text-stone font-light leading-relaxed">
+            Nossa cerimônia terá início pontualmente às 16:30 com a luz do entardecer. Sugerimos a chegada com 30 minutos de antecedência.
+          </p>
+        </div>
+
+        <!-- Info 2: Fotos & Compartilhamento -->
+        <div class="info-card p-8 sm:p-10 text-center">
+          <div class="info-icon-wrapper mx-auto mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium mb-3">Fotos & Compartilhamento</h3>
+          <p class="text-sm text-stone font-light leading-relaxed">
+            Após a cerimônia, registre muitos momentos e compartilhe suas fotos conosco.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       8. GALERIA DE FOTOS ("Em Breve")
+       ========================================================================= -->
+  <section id="galeria" class="py-28 bg-ivory relative">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      
+      <div class="text-center mb-12 reveal-on-scroll">
+        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
+          Galeria Oficial
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
+          Fotos do Casamento
+        </h2>
+        <div class="luxury-divider">
+          <span class="font-script text-champagne-gold text-2xl">em breve</span>
+        </div>
+      </div>
+
+      <!-- Editorial "Coming Soon" Announcement Card -->
+      <div class="editorial-card p-10 sm:p-16 max-w-2xl mx-auto text-center reveal-on-scroll">
+        
+        <!-- Delicate Camera Icon -->
+        <div class="w-16 h-16 rounded-full border border-champagne-gold/40 mx-auto mb-6 flex items-center justify-center text-champagne-gold bg-offwhite shadow-sm">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+
+        <h3 class="font-serif text-2xl sm:text-3xl text-espresso font-light italic mb-4">
+          Em breve publicaremos aqui todas as fotos do nosso casamento!
+        </h3>
+
+        <p class="text-stone font-light text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto">
+          Estamos preparando uma galeria completa em alta definição com todos os registros, emoções e sorrisos desse dia inesquecível. Aguarde!
+        </p>
+
+        <div class="inline-flex items-center gap-3 px-6 py-2.5 bg-offwhite border border-champagne-gold/30 rounded-full text-xs uppercase tracking-widest text-espresso font-medium">
+          <span class="w-2 h-2 rounded-full bg-champagne-gold animate-pulse"></span>
+          <span>Aguarde • Fotos em breve</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       11. MENSAGEM FINAL
+       ========================================================================= -->
+  <section class="relative min-h-[70vh] flex items-center justify-center text-center p-8 bg-charcoal overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center filter brightness-[0.4] contrast-110" style="background-image: url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1800&q=85');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black-soft/90 via-transparent to-black-soft/60"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto text-ivory reveal-on-scroll">
+      <div class="font-serif text-3xl sm:text-4xl md:text-5xl font-light italic leading-tight mb-6">
+        “Com a bênção de Deus e a presença de quem mais amamos, começamos o nosso para sempre.”
+      </div>
+
+      <div class="w-12 h-px bg-champagne-gold/70 mx-auto mb-6"></div>
+
+      <div class="font-serif text-2xl tracking-wider text-champagne mb-2">
+        Karolina <span class="font-script text-3xl font-normal text-champagne-gold">&</span> Igo
+      </div>
+
+      <div class="text-xs uppercase tracking-ultra text-stone/80">
+        24 • 10 • 2026
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       12. RODAPÉ (FOOTER MINIMALISTA)
+       ========================================================================= -->
+  <footer class="py-12 bg-ivory text-center border-t border-champagne-gold/20">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <!-- Minimalist Monogram -->
+      <div class="monogram-badge font-serif text-2xl tracking-widest text-espresso font-light mb-3">
+        K <span class="font-script text-champagne-gold text-3xl">&</span> I
+      </div>
+
+      <p class="font-serif text-lg text-espresso font-light italic mb-1">
+        Karolina & Igo
+      </p>
+
+      <p class="text-xs uppercase tracking-ultra text-stone mb-6">
+        24 de Outubro de 2026 — Serra da Cantareira
+      </p>
+
+      <div class="w-8 h-px bg-champagne-gold/40 mx-auto mb-6"></div>
+
+      <p class="text-[11px] text-stone/70 tracking-widest uppercase font-light">
+        Com carinho • Feito para celebrar o amor
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       LIGHTBOX MODAL (GALERIA)
+       ========================================================================= -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Fechar">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Anterior">&#10094;</button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Próxima">&#10095;</button>
+    
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODAL DE CONFIRMAÇÃO RSVP
+       ========================================================================= -->
+  <div id="rsvp-success-modal" class="custom-modal" role="dialog" aria-modal="true">
+    <div class="custom-modal-content text-center">
+      <button id="close-rsvp-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+
+      <div class="w-16 h-16 rounded-full border border-champagne-gold mx-auto mb-6 flex items-center justify-center text-champagne-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+
+      <h3 id="rsvp-modal-title" class="font-serif text-3xl text-espresso font-light italic mb-4">
+        Presença confirmada!
+      </h3>
+
+      <p id="rsvp-modal-msg" class="text-stone font-light text-sm sm:text-base leading-relaxed mb-8">
+        Estamos muito felizes em celebrar esse momento especial com você.
+      </p>
+
+      <div class="space-y-4">
+        <a id="rsvp-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-luxury-solid w-full text-xs py-3">
+          <span>Enviar Confirmação no WhatsApp</span>
+        </a>
+        <button onclick="document.getElementById('rsvp-success-modal').classList.remove('active')" class="text-xs uppercase tracking-widest text-stone hover:text-espresso py-2 block w-full">
+          Fechar Janela
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODAL DE PRESENTE / PIX
+       ========================================================================= -->
+  <div id="gift-modal" class="custom-modal" role="dialog" aria-modal="true">
+    <div class="custom-modal-content text-center">
+      <button id="close-gift-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+
+      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-1">
+        Presentear os Noivos
+      </span>
+      <h3 id="gift-modal-item-title" class="font-serif text-2xl sm:text-3xl text-espresso font-normal mb-2">
+        Jantar Romântico
+      </h3>
+      <p id="gift-modal-item-val" class="font-serif text-xl text-olive-dark font-medium mb-6">
+        R$ 480,00
+      </p>
+
+      <div class="luxury-divider my-4">
+        <span class="font-script text-champagne-gold text-xl">pix</span>
+      </div>
+
+      <!-- Simulated QR Code -->
+      <div class="bg-white p-4 inline-block border border-champagne-gold/30 shadow-sm mb-4">
+        <svg class="w-36 h-36 mx-auto text-espresso" viewBox="0 0 100 100" fill="currentColor">
+          <!-- Stylized QR Code SVG pattern -->
+          <rect x="0" y="0" width="30" height="30" fill="#25201E"/>
+          <rect x="5" y="5" width="20" height="20" fill="#FFFFFF"/>
+          <rect x="9" y="9" width="12" height="12" fill="#25201E"/>
+          <rect x="70" y="0" width="30" height="30" fill="#25201E"/>
+          <rect x="75" y="5" width="20" height="20" fill="#FFFFFF"/>
+          <rect x="79" y="9" width="12" height="12" fill="#25201E"/>
+          <rect x="0" y="70" width="30" height="30" fill="#25201E"/>
+          <rect x="5" y="75" width="20" height="20" fill="#FFFFFF"/>
+          <rect x="9" y="79" width="12" height="12" fill="#25201E"/>
+          <rect x="40" y="10" width="10" height="10" fill="#25201E"/>
+          <rect x="55" y="20" width="10" height="10" fill="#25201E"/>
+          <rect x="40" y="40" width="20" height="20" fill="#C5A880"/>
+          <rect x="15" y="45" width="10" height="10" fill="#25201E"/>
+          <rect x="75" y="45" width="15" height="10" fill="#25201E"/>
+          <rect x="40" y="75" width="10" height="15" fill="#25201E"/>
+          <rect x="65" y="75" width="25" height="15" fill="#25201E"/>
+        </svg>
+      </div>
+
+      <p class="text-xs text-stone font-light mb-4">
+        Escaneie o QR Code acima no aplicativo do seu banco ou copie a chave Pix:
+      </p>
+
+      <!-- Pix Copy Box -->
+      <div class="flex items-center gap-2 mb-6">
+        <input type="text" id="pix-key-input" readonly value="karolinaeigo.casamento@email.com" class="rsvp-input text-xs text-center py-2 bg-offwhite">
+        <button id="copy-pix-btn" class="btn-luxury btn-luxury-solid text-xs py-2 px-4 whitespace-nowrap">
+          <span>Copiar Pix</span>
+        </button>
+      </div>
+
+      <!-- Gift Message Form -->
+      <form id="gift-form" class="space-y-4 text-left border-t border-champagne-gold/20 pt-4">
+        <div>
+          <label class="rsvp-label">Seu Nome</label>
+          <input type="text" required placeholder="Como deseja ser identificado" class="rsvp-input text-sm">
+        </div>
+        <div>
+          <label class="rsvp-label">Recado Especial aos Noivos</label>
+          <textarea rows="2" placeholder="Deixe seus votos de felicidade..." class="rsvp-input text-sm resize-none"></textarea>
+        </div>
+        <button type="submit" class="btn-luxury btn-luxury-solid w-full text-xs py-3">
+          <span>Confirmar Presente</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- Toast Notice Element -->
+  <div class="toast-notice" role="status"></div>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
