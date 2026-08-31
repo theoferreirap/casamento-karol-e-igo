@@ -7,29 +7,74 @@ const DB_FILENAME = 'moments-db.json';
 const INITIAL_MOMENTS = [
   {
     id: 'moment-1',
-    imageUrl: 'historia-1.jpg',
-    title: 'O Primeiro Olhar',
-    date: 'Junho de 2021',
-    caption: 'Tudo começou no Dia dos Namorados. Um caldo, um doce e um olhar que mudou tudo para sempre.',
+    imageUrl: 'foto-1.jpg',
+    title: 'O Começo de Tudo',
+    date: '2021',
+    caption: 'Tudo começou no Dia dos Namorados. Um encontro inesperado que transformou nossas vidas.',
     order: 1,
     createdAt: '2021-06-12T19:00:00.000Z'
   },
   {
     id: 'moment-2',
-    imageUrl: 'historia-2.jpg',
-    title: 'Nossos Momentos & Cumplicidade',
-    date: '2022 — 2023',
-    caption: 'Conversas que não tinham fim, risadas sinceras e a certeza de que caminhávamos na mesma direção.',
+    imageUrl: 'foto-2.jpg',
+    title: 'Nossos Momentos & Viagens',
+    date: '2022',
+    caption: 'Cada lugar visitado e cada risada compartilhada nos uniu ainda mais.',
     order: 2,
-    createdAt: '2022-09-15T15:30:00.000Z'
+    createdAt: '2022-04-10T15:00:00.000Z'
   },
   {
     id: 'moment-3',
-    imageUrl: 'historia-3.jpg',
+    imageUrl: 'foto-3.jpg',
+    title: 'Sorrisos & Cumplicidade',
+    date: '2022',
+    caption: 'A leveza de estarmos juntos e a certeza de estarmos no caminho certo.',
+    order: 3,
+    createdAt: '2022-09-15T18:30:00.000Z'
+  },
+  {
+    id: 'moment-4',
+    imageUrl: 'foto-4.jpg',
+    title: 'Dias Inesquecíveis',
+    date: '2023',
+    caption: 'Conversas que não tinham fim, planos traçados e sonhos divididos.',
+    order: 4,
+    createdAt: '2023-01-20T14:00:00.000Z'
+  },
+  {
+    id: 'moment-5',
+    imageUrl: 'foto-5.jpg',
+    title: 'Construindo Nossa História',
+    date: '2023',
+    caption: 'Passo a passo, consolidando o amor mais bonito de nossas vidas.',
+    order: 5,
+    createdAt: '2023-07-18T16:00:00.000Z'
+  },
+  {
+    id: 'moment-6',
+    imageUrl: 'foto-6.jpg',
+    title: 'Lado a Lado',
+    date: '2024',
+    caption: 'A felicidade em compartilhar a rotina, os pequenos detalhes e grandes conquistas.',
+    order: 6,
+    createdAt: '2024-02-14T20:00:00.000Z'
+  },
+  {
+    id: 'moment-7',
+    imageUrl: 'foto-7.jpg',
+    title: 'A Certeza do Amor',
+    date: '2024',
+    caption: 'O amor que cresce a cada dia e a vontade de viver uma vida inteira juntos.',
+    order: 7,
+    createdAt: '2024-04-05T17:30:00.000Z'
+  },
+  {
+    id: 'moment-8',
+    imageUrl: 'foto-8.jpg',
     title: 'O Pedido & O Nosso Sim',
     date: '2024',
-    caption: 'Quando o amor transbordou e a resposta mais fácil e bonita de nossas vidas foi dita: Sim, para sempre! 💍',
-    order: 3,
+    caption: 'Quando o coração falou mais alto e o sim foi dito com toda a certeza do mundo! 💍',
+    order: 8,
     createdAt: '2024-05-20T20:00:00.000Z'
   }
 ];
