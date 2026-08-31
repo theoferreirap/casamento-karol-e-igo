@@ -1,0 +1,10 @@
+PASTA DE FOTOS DO ÁLBUM "UM POUCO DE NÓS"
+============================================
+
+Você pode colocar aqui qualquer foto que queira guardar ou anexar ao projeto!
+
+DICA:
+Quando o site estiver publicado na Vercel, você e a Karol também poderão adicionar fotos diretamente pelo celular ou computador acessando o painel:
+👉 https://seu-site.vercel.app/admin-fotos
+
+Lá basta arrastar a foto, escrever o título, ano e legenda e clicar em "Publicar no Álbum"!
