@@ -5,17 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap');
 
 :root {
-  /* Color Palette - Terracotta, Warm Cream & Earth Tones (Convite Oficial) */
+  /* Color Palette - Exact Invitation Terracotta Leaves & Warm Cream */
   --color-ivory: #FAF3EC;
   --color-offwhite: #F4E8DC;
   --color-champagne-light: #EFE0D2;
   --color-champagne: #E8D4C2;
-  --color-champagne-gold: #B9744D; /* Terracotta / Rust Signature */
-  --color-terracotta: #B9744D;
-  --color-terracotta-light: #C87D55;
-  --color-terracotta-dark: #9A522C;
-  --color-gold-accent: #B9744D;
-  --color-gold-hover: #9A522C;
+  --color-champagne-gold: #9B522F; /* Exact Wreath Leaf Terracotta */
+  --color-terracotta: #9B522F;
+  --color-terracotta-light: #BA6E47;
+  --color-terracotta-dark: #783618;
+  --color-gold-accent: #9B522F;
+  --color-gold-hover: #783618;
   
   --color-sage-soft: #D5D6CA;
   --color-olive-muted: #706E59;
