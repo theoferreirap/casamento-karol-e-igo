@@ -359,19 +359,16 @@ async function initAntesDoSim() {
 }
 
 function renderMomentsPublic(moments, container) {
+  container.className = "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal-on-scroll";
   container.innerHTML = moments.map((m) => `
-    <div class="moment-entry reveal-on-scroll">
-      <div class="moment-img-col">
-        <div class="moment-img-frame" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Momento'}')">
-          <div class="moment-img-wrapper aspect-[4/5]">
-            <img src="${m.imageUrl}" alt="${m.title || 'Momento antes do sim'}" loading="lazy">
-          </div>
+    <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Um Pouco de Nós'}')">
+      <img src="${m.imageUrl}" alt="${m.title || 'Um Pouco de Nós'}" class="object-cover w-full h-full" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+          </svg>
         </div>
-      </div>
-      <div class="moment-text-col">
-        ${m.date ? `<span class="moment-badge-year">${m.date}</span>` : ''}
-        ${m.title ? `<h3 class="moment-title-text">${m.title}</h3>` : ''}
-        ${m.caption ? `<p class="moment-caption-text">${m.caption}</p>` : ''}
       </div>
     </div>
   `).join('');

@@ -110,9 +110,6 @@
       <a href="#informacoes" class="mobile-nav-link">Para Você Saber</a>
       <a href="#galeria" class="mobile-nav-link">Galeria</a>
     </nav>
-    <div class="mt-8 text-xs tracking-widest uppercase text-stone font-light">
-      16 de Outubro de 2027
-    </div>
   </div>
 
 
@@ -150,9 +147,8 @@
         <span class="font-script text-champagne text-2xl">amor & união</span>
       </div>
 
-      <!-- Date & Venue -->
+      <!-- Venue -->
       <div class="hero-date text-champagne/90 mb-10 font-light">
-        16 de Outubro de 2027
         <span class="block text-xs sm:text-sm tracking-widest text-stone/80 mt-1">Serra da Cantareira — São Paulo</span>
       </div>
 
@@ -371,171 +367,115 @@
 
 
   <!-- =========================================================================
-       ÁLBUM AFETIVO ("Um Pouco de Nós")
+       ÁLBUM FOTOGRÁFICO ("Um Pouco de Nós")
        ========================================================================= -->
   <section id="um-pouco-de-nos" class="py-28 antes-do-sim-section relative border-t border-champagne-gold/20">
     <div class="max-w-6xl mx-auto px-6">
       
       <!-- Section Header -->
-      <div class="text-center mb-20 reveal-on-scroll">
+      <div class="text-center mb-16 reveal-on-scroll">
         <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
-          Álbum Afetivo
+          Galeria de Momentos
         </span>
         <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso font-light italic mb-4">
           Um Pouco de Nós
         </h2>
         <p class="text-stone font-light text-sm max-w-lg mx-auto">
-          Fragmentos de amor, viagens e cumplicidade que construíram a nossa história até aqui.
+          Fragmentos de amor, viagens e cumplicidade registrados ao longo da nossa caminhada.
         </p>
         <div class="luxury-divider">
-          <span class="font-script text-champagne-gold text-2xl">momentos</span>
+          <span class="font-script text-champagne-gold text-2xl">registros</span>
         </div>
       </div>
 
-      <!-- Dynamic Moments Container -->
-      <div id="moments-container" class="antes-do-sim-grid">
+      <!-- Pure Photos Organized Grid -->
+      <div id="moments-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal-on-scroll">
         
-        <!-- Momento 1 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-1.jpg', 'O Começo de Tudo')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-1.jpg" alt="O Começo de Tudo" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-1.jpg')">
+          <img src="foto-1.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2021 • O Começo</span>
-            <h3 class="moment-title-text">O Começo de Tudo</h3>
-            <p class="moment-caption-text">
-              Tudo começou no Dia dos Namorados. Um encontro inesperado que transformou nossas vidas para sempre.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 2 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-2.jpg', 'Nossos Momentos & Viagens')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-2.jpg" alt="Nossos Momentos & Viagens" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-2.jpg')">
+          <img src="foto-2.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2022 • Cumplicidade</span>
-            <h3 class="moment-title-text">Nossos Momentos & Viagens</h3>
-            <p class="moment-caption-text">
-              Cada lugar visitado e cada risada compartilhada nos uniu ainda mais em um único propósito.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 3 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-3.jpg', 'Sorrisos & Cumplicidade')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-3.jpg" alt="Sorrisos & Cumplicidade" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-3.jpg')">
+          <img src="foto-3.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2022 • Conexão</span>
-            <h3 class="moment-title-text">Sorrisos & Cumplicidade</h3>
-            <p class="moment-caption-text">
-              A leveza de estarmos juntos e a certeza diária de estarmos no caminho certo.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 4 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-4.jpg', 'Dias Inesquecíveis')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-4.jpg" alt="Dias Inesquecíveis" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-4.jpg')">
+          <img src="foto-4.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2023 • Memórias</span>
-            <h3 class="moment-title-text">Dias Inesquecíveis</h3>
-            <p class="moment-caption-text">
-              Conversas que não tinham fim, planos traçados e sonhos divididos com o coração aberto.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 5 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-5.jpg', 'Construindo Nossa História')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-5.jpg" alt="Construindo Nossa História" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-5.jpg')">
+          <img src="foto-5.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2023 • Construção</span>
-            <h3 class="moment-title-text">Construindo Nossa História</h3>
-            <p class="moment-caption-text">
-              Passo a passo, fortalecendo e consolidando o amor mais bonito e sincero de nossas vidas.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 6 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-6.jpg', 'Lado a Lado')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-6.jpg" alt="Lado a Lado" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-6.jpg')">
+          <img src="foto-6.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2024 • Amor & Vida</span>
-            <h3 class="moment-title-text">Lado a Lado</h3>
-            <p class="moment-caption-text">
-              A felicidade em compartilhar a rotina, os pequenos detalhes e as grandes conquistas.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 7 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-7.jpg', 'A Certeza do Amor')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-7.jpg" alt="A Certeza do Amor" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-7.jpg')">
+          <img src="foto-7.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2024 • O Encontro</span>
-            <h3 class="moment-title-text">A Certeza do Amor</h3>
-            <p class="moment-caption-text">
-              O amor que amadureceu e a vontade infinita de viver uma vida inteira juntos.
-            </p>
           </div>
         </div>
 
-        <!-- Momento 8 -->
-        <div class="moment-entry reveal-on-scroll">
-          <div class="moment-img-col">
-            <div class="moment-img-frame" onclick="openLightboxFromMoment('foto-8.jpg', 'O Pedido & O Nosso Sim')">
-              <div class="moment-img-wrapper aspect-[4/5]">
-                <img src="foto-8.jpg" alt="O Pedido & O Nosso Sim" loading="lazy">
-              </div>
+        <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('foto-8.jpg')">
+          <img src="foto-8.jpg" alt="Um Pouco de Nós" class="object-cover w-full h-full" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+              </svg>
             </div>
-          </div>
-          <div class="moment-text-col">
-            <span class="moment-badge-year">2024 • A Aliança</span>
-            <h3 class="moment-title-text">O Pedido & O Nosso Sim</h3>
-            <p class="moment-caption-text">
-              Quando o coração falou mais alto e o sim foi dito com toda a certeza e emoção do mundo! 💍
-            </p>
           </div>
         </div>
 
@@ -632,7 +572,7 @@
           Esperamos Você
         </h2>
         <p class="text-stone font-light text-sm max-w-lg mx-auto leading-relaxed">
-          Sua presença tornará esse momento ainda mais especial. Por favor, confirme sua presença até o dia <strong class="font-medium text-espresso">15 de Setembro de 2027</strong>.
+          Sua presença tornará esse momento ainda mais especial. Por favor, confirme sua presença preenchendo o formulário abaixo.
         </p>
         <div class="luxury-divider">
           <span class="font-script text-champagne-gold text-2xl">confirmação</span>
@@ -962,10 +902,6 @@
       <div class="font-serif text-2xl tracking-wider text-champagne mb-2">
         Karolina <span class="font-script text-3xl font-normal text-champagne-gold">&</span> Igo
       </div>
-
-      <div class="text-xs uppercase tracking-ultra text-stone/80">
-        16 • 10 • 2027
-      </div>
     </div>
   </section>
 
@@ -986,7 +922,7 @@
       </p>
 
       <p class="text-xs uppercase tracking-ultra text-stone mb-6">
-        16 de Outubro de 2027 — Serra da Cantareira
+        Serra da Cantareira — São Paulo
       </p>
 
       <div class="w-8 h-px bg-champagne-gold/40 mx-auto mb-6"></div>
