@@ -387,8 +387,8 @@ function initCalendar() {
   const icalBtn = document.getElementById('download-ical');
 
   const eventTitle = "Casamento Karolina & Igo";
-  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30 seguida de recepção e jantar.";
-  const eventLocation = "Villa Felicitá - Alameda das Hortênsias, 1200 - Serra da Cantareira, SP";
+  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30.";
+  const eventLocation = "Igreja Batista Getsêmani Missão Venda Nova - Rua Benjamim Alves, 15 - Minas Caixa, Belo Horizonte - MG, 31610-370";
   const startDate = "20271016T193000Z"; // UTC for 16:30 BRT
   const endDate = "20271017T070000Z"; // UTC for 04:00 BRT next day
 
