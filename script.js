@@ -40,8 +40,8 @@ function initNavbar() {
    2. REAL-TIME COUNTDOWN TIMER
    ========================================================================== */
 function initCountdown() {
-  // Wedding Date: 24 de Outubro de 2026 às 16:30
-  const weddingDate = new Date('2026-10-24T16:30:00-03:00').getTime();
+  // Wedding Date: 16 de Outubro de 2027 às 16:30
+  const weddingDate = new Date('2027-10-16T16:30:00-03:00').getTime();
 
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
@@ -321,40 +321,54 @@ function initGallery() {
 }
 
 /* ==========================================================================
-   5.5. ÁLBUM DINÂMICO "ANTES DO SIM"
+   5.5. ÁLBUM DINÂMICO "UM POUCO DE NÓS"
    ========================================================================== */
 async function initAntesDoSim() {
   const container = document.getElementById('moments-container');
   if (!container) return;
 
   try {
+    let moments = [];
     const res = await fetch('/api/moments?t=' + Date.now());
-    if (!res.ok) return;
-    const data = await res.json();
-    const moments = data.moments;
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.moments) && data.moments.length > 0) {
+        moments = data.moments;
+      }
+    }
+
+    if (moments.length === 0) {
+      const localSaved = localStorage.getItem('wedding_moments_list');
+      if (localSaved) {
+        moments = JSON.parse(localSaved);
+      }
+    }
 
     if (Array.isArray(moments) && moments.length > 0) {
       renderMomentsPublic(moments, container);
     }
   } catch (err) {
-    console.log('Utilizando momentos pré-renderizados locais:', err);
+    const localSaved = localStorage.getItem('wedding_moments_list');
+    if (localSaved) {
+      const moments = JSON.parse(localSaved);
+      if (Array.isArray(moments) && moments.length > 0) {
+        renderMomentsPublic(moments, container);
+      }
+    }
   }
 }
 
 function renderMomentsPublic(moments, container) {
+  container.className = "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal-on-scroll";
   container.innerHTML = moments.map((m) => `
-    <div class="moment-entry reveal-on-scroll">
-      <div class="moment-img-col">
-        <div class="moment-img-frame" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Momento'}')">
-          <div class="moment-img-wrapper aspect-[4/5]">
-            <img src="${m.imageUrl}" alt="${m.title || 'Momento antes do sim'}" loading="lazy">
-          </div>
+    <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Um Pouco de Nós'}')">
+      <img src="${m.imageUrl}" alt="${m.title || 'Um Pouco de Nós'}" class="object-cover w-full h-full" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+          </svg>
         </div>
-      </div>
-      <div class="moment-text-col">
-        ${m.date ? `<span class="moment-badge-year">${m.date}</span>` : ''}
-        ${m.title ? `<h3 class="moment-title-text">${m.title}</h3>` : ''}
-        ${m.caption ? `<p class="moment-caption-text">${m.caption}</p>` : ''}
       </div>
     </div>
   `).join('');
@@ -373,10 +387,10 @@ function initCalendar() {
   const icalBtn = document.getElementById('download-ical');
 
   const eventTitle = "Casamento Karolina & Igo";
-  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30 seguida de recepção e jantar.";
-  const eventLocation = "Villa Felicitá - Alameda das Hortênsias, 1200 - Serra da Cantareira, SP";
-  const startDate = "20261024T193000Z"; // UTC for 16:30 BRT
-  const endDate = "20261025T070000Z"; // UTC for 04:00 BRT next day
+  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30.";
+  const eventLocation = "Igreja Batista Getsêmani Missão Venda Nova - Rua Benjamim Alves, 15 - Minas Caixa, Belo Horizonte - MG, 31610-370";
+  const startDate = "20271016T193000Z"; // UTC for 16:30 BRT
+  const endDate = "20271017T070000Z"; // UTC for 04:00 BRT next day
 
   if (gcalBtn) {
     const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(eventDetails)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
