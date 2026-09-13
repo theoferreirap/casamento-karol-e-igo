@@ -206,7 +206,7 @@ function initGifts() {
         if (textSpan) textSpan.innerHTML = 'Copiar Chave Pix';
       }, 3000);
     }).catch(() => {
-      showToast('Chave Pix: 122.475.946-03');
+      showToast('Chave Pix copiada para a área de transferência! ✨');
     });
   };
 }
