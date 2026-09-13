@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // 2. Client fallback verification
-      const validPasswords = ['karol2026', 'karol&igo2026', 'karolina2026', 'igo2026', '123456'];
+      const validPasswords = ['karol2027', 'karol&igo2027', 'karolina2027', 'igo2027', 'karol2026', 'karol&igo2026', 'karolina2026', 'igo2026', '123456'];
       const passClean = password.toLowerCase().replace(/\s+/g, '');
       const isClientValid = validPasswords.includes(passClean);
 
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showDashboard();
         loadMoments();
       } else {
-        showToast('Senha incorreta. Tente "karol2026".', 'error');
+        showToast('Senha incorreta. Tente "karol2027" ou "karol2026".', 'error');
       }
     } catch (err) {
       showToast('Erro ao autenticar. Tente novamente.', 'error');

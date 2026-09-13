@@ -359,16 +359,19 @@ async function initAntesDoSim() {
 }
 
 function renderMomentsPublic(moments, container) {
-  container.className = "grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal-on-scroll";
   container.innerHTML = moments.map((m) => `
-    <div class="gallery-item aspect-[4/5] rounded-sm border border-champagne-gold/25 shadow-sm" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Um Pouco de Nós'}')">
-      <img src="${m.imageUrl}" alt="${m.title || 'Um Pouco de Nós'}" class="object-cover w-full h-full" loading="lazy">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-          </svg>
+    <div class="moment-entry reveal-on-scroll">
+      <div class="moment-img-col">
+        <div class="moment-img-frame" onclick="openLightboxFromMoment('${m.imageUrl}', '${m.title ? m.title.replace(/'/g, "\\'") : 'Momento'}')">
+          <div class="moment-img-wrapper aspect-[4/5]">
+            <img src="${m.imageUrl}" alt="${m.title || 'Momento antes do sim'}" loading="lazy">
+          </div>
         </div>
+      </div>
+      <div class="moment-text-col">
+        ${m.date ? `<span class="moment-badge-year">${m.date}</span>` : ''}
+        ${m.title ? `<h3 class="moment-title-text">${m.title}</h3>` : ''}
+        ${m.caption ? `<p class="moment-caption-text">${m.caption}</p>` : ''}
       </div>
     </div>
   `).join('');
@@ -386,9 +389,9 @@ function initCalendar() {
   const gcalBtn = document.getElementById('add-to-gcal');
   const icalBtn = document.getElementById('download-ical');
 
-  const eventTitle = "Casamento Igo & Karolina";
-  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30.";
-  const eventLocation = "Igreja Batista Getsêmani Missão Venda Nova - Rua Benjamim Alves, 15 - Minas Caixa, Belo Horizonte - MG, 31610-370";
+  const eventTitle = "Casamento Karolina & Igo";
+  const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30 seguida de recepção e jantar.";
+  const eventLocation = "Villa Felicitá - Alameda das Hortênsias, 1200 - Serra da Cantareira, SP";
   const startDate = "20271016T193000Z"; // UTC for 16:30 BRT
   const endDate = "20271017T070000Z"; // UTC for 04:00 BRT next day
 
@@ -420,7 +423,7 @@ function initCalendar() {
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.setAttribute('download', 'Casamento_Igo_e_Karolina.ics');
+      link.setAttribute('download', 'Casamento_Karolina_e_Igo.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -57,6 +57,9 @@ module.exports = async function handler(req, res) {
       // Check against configured environment password OR standard defaults
       const validPasswords = [
         process.env.ADMIN_PASSWORD,
+        'karol2027',
+        'karol&igo2027',
+        'karolina2027',
         'karol2026',
         'karol&igo2026',
         'karolina2026'
@@ -70,7 +73,7 @@ module.exports = async function handler(req, res) {
       });
 
       if (!isMatch) {
-        return res.status(401).json({ error: 'Senha incorreta. Tente "karol2026".' });
+        return res.status(401).json({ error: 'Senha incorreta. Tente "karol2027".' });
       }
 
       const token = generateToken();
