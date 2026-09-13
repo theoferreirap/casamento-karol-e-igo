@@ -56,7 +56,6 @@
       <a href="#historia" class="nav-link">Nossa História</a>
       <a href="#um-pouco-de-nos" class="nav-link">Um Pouco de Nós</a>
       <a href="#cerimonia" class="nav-link">O Nosso Sim</a>
-      <a href="#rsvp" class="nav-link">RSVP</a>
       <a href="#presentes" class="nav-link">Presentes</a>
       <a href="#informacoes" class="nav-link">Informações</a>
       <a href="#galeria" class="nav-link">Galeria</a>
@@ -105,7 +104,6 @@
       <a href="#historia" class="mobile-nav-link">Nossa História</a>
       <a href="#um-pouco-de-nos" class="mobile-nav-link">Um Pouco de Nós</a>
       <a href="#cerimonia" class="mobile-nav-link">O Nosso Sim</a>
-      <a href="#rsvp" class="mobile-nav-link">Confirmar Presença</a>
       <a href="#presentes" class="mobile-nav-link">Lista de Presentes</a>
       <a href="#informacoes" class="mobile-nav-link">Para Você Saber</a>
       <a href="#galeria" class="mobile-nav-link">Galeria</a>
@@ -154,8 +152,8 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#rsvp" class="btn-luxury btn-luxury-light">
-          <span>Confirmar Presença</span>
+        <a href="#cerimonia" class="btn-luxury btn-luxury-light">
+          <span>A Cerimônia</span>
         </a>
         <a href="#historia" class="btn-luxury text-xs py-3 px-6 text-white border-white/40 hover:border-white">
           <span>Nossa História</span>
@@ -559,79 +557,7 @@
 
 
   <!-- =========================================================================
-       6. CONFIRMAÇÃO DE PRESENÇA – RSVP ("Esperamos você")
-       ========================================================================= -->
-  <section id="rsvp" class="py-28 bg-ivory relative">
-    <div class="max-w-3xl mx-auto px-6">
-      
-      <div class="text-center mb-16 reveal-on-scroll">
-        <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
-          R.S.V.P.
-        </span>
-        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
-          Esperamos Você
-        </h2>
-        <p class="text-stone font-light text-sm max-w-lg mx-auto leading-relaxed">
-          Sua presença tornará esse momento ainda mais especial. Por favor, confirme sua presença preenchendo o formulário abaixo.
-        </p>
-        <div class="luxury-divider">
-          <span class="font-script text-champagne-gold text-2xl">confirmação</span>
-        </div>
-      </div>
-
-      <!-- RSVP Form Container -->
-      <div class="rsvp-form-container reveal-on-scroll">
-        <form id="rsvp-form" class="space-y-6">
-          
-          <!-- Full Name -->
-          <div>
-            <label for="guest-name" class="rsvp-label">Nome Completo *</label>
-            <input type="text" id="guest-name" name="guest_name" required placeholder="Como consta no convite" class="rsvp-input">
-          </div>
-
-          <!-- Phone / WhatsApp -->
-          <div>
-            <label for="guest-phone" class="rsvp-label">Telefone / WhatsApp *</label>
-            <input type="tel" id="guest-phone" name="guest_phone" required placeholder="(11) 99999-9999" class="rsvp-input">
-          </div>
-
-          <!-- Attendance Option (Sim / Não) -->
-          <div>
-            <label class="rsvp-label">Você comparecerá ao casamento? *</label>
-            <div class="rsvp-radio-group">
-              <label class="rsvp-radio-card active" id="radio-card-yes">
-                <input type="radio" name="attending" value="sim" checked class="mr-2">
-                <span class="text-xs uppercase tracking-widest font-medium text-espresso">Sim, com certeza!</span>
-              </label>
-              <label class="rsvp-radio-card" id="radio-card-no">
-                <input type="radio" name="attending" value="nao" class="mr-2">
-                <span class="text-xs uppercase tracking-widest font-medium text-stone">Infelizmente não</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Sweet Message -->
-          <div>
-            <label for="guest-message" class="rsvp-label">Mensagem para os Noivos (Opcional)</label>
-            <textarea id="guest-message" name="guest_message" rows="3" placeholder="Deixe uma palavra de carinho..." class="rsvp-input resize-none"></textarea>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="pt-4 text-center">
-            <button type="submit" class="btn-luxury btn-luxury-solid w-full sm:w-auto py-4 px-12">
-              <span>Confirmar Presença</span>
-            </button>
-          </div>
-
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =========================================================================
-       7. LISTA DE PRESENTES & EXPERIÊNCIAS ("Lista de Presentes")
+       5. LISTA DE PRESENTES & EXPERIÊNCIAS ("Lista de Presentes")
        ========================================================================= -->
   <section id="presentes" class="py-28 bg-offwhite/50 relative border-t border-champagne-gold/20">
     <div class="max-w-6xl mx-auto px-6">
@@ -945,39 +871,6 @@
     
     <div class="lightbox-img-wrapper">
       <img id="lightbox-img" class="lightbox-img" src="" alt="">
-    </div>
-  </div>
-
-
-  <!-- =========================================================================
-       MODAL DE CONFIRMAÇÃO RSVP
-       ========================================================================= -->
-  <div id="rsvp-success-modal" class="custom-modal" role="dialog" aria-modal="true">
-    <div class="custom-modal-content text-center">
-      <button id="close-rsvp-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
-
-      <div class="w-16 h-16 rounded-full border border-champagne-gold mx-auto mb-6 flex items-center justify-center text-champagne-gold">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path>
-        </svg>
-      </div>
-
-      <h3 id="rsvp-modal-title" class="font-serif text-3xl text-espresso font-light italic mb-4">
-        Presença confirmada!
-      </h3>
-
-      <p id="rsvp-modal-msg" class="text-stone font-light text-sm sm:text-base leading-relaxed mb-8">
-        Estamos muito felizes em celebrar esse momento especial com você.
-      </p>
-
-      <div class="space-y-4">
-        <a id="rsvp-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-luxury-solid w-full text-xs py-3">
-          <span>Enviar Confirmação no WhatsApp</span>
-        </a>
-        <button onclick="document.getElementById('rsvp-success-modal').classList.remove('active')" class="text-xs uppercase tracking-widest text-stone hover:text-espresso py-2 block w-full">
-          Fechar Janela
-        </button>
-      </div>
     </div>
   </div>
 
