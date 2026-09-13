@@ -1,4 +1,4 @@
-// Admin Dashboard JavaScript for Karol & Igo - Um Pouco de Nós
+// Admin Dashboard JavaScript for Igo & Karolina - Um Pouco de Nós
 document.addEventListener('DOMContentLoaded', () => {
   const loginSection = document.getElementById('login-section');
   const dashboardSection = document.getElementById('dashboard-section');

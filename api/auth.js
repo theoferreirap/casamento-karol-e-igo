@@ -58,6 +58,8 @@ module.exports = async function handler(req, res) {
       const validPasswords = [
         process.env.ADMIN_PASSWORD,
         'karol2027',
+        'igo2027',
+        'igo&karol2027',
         'karol&igo2027',
         'karolina2027',
         'karol2026',
