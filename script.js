@@ -386,7 +386,7 @@ function initCalendar() {
   const gcalBtn = document.getElementById('add-to-gcal');
   const icalBtn = document.getElementById('download-ical');
 
-  const eventTitle = "Casamento Karolina & Igo";
+  const eventTitle = "Casamento Igo & Karolina";
   const eventDetails = "Celebração do nosso amor e casamento. Cerimônia às 16:30.";
   const eventLocation = "Igreja Batista Getsêmani Missão Venda Nova - Rua Benjamim Alves, 15 - Minas Caixa, Belo Horizonte - MG, 31610-370";
   const startDate = "20271016T193000Z"; // UTC for 16:30 BRT
@@ -420,7 +420,7 @@ function initCalendar() {
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.setAttribute('download', 'Casamento_Karolina_e_Igo.ics');
+      link.setAttribute('download', 'Casamento_Igo_e_Karolina.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
