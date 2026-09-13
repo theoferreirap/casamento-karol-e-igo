@@ -476,7 +476,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=85');
+  background-image: url('https://images.unsplash.com/photo-1546842931-886c185b4c8c?auto=format&fit=crop&w=2000&q=85');
   background-size: cover;
   background-position: center;
   opacity: 0.32;
@@ -489,7 +489,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(250, 243, 236, 0.35) 0%, rgba(250, 243, 236, 0.75) 75%, #FAF3EC 100%);
+  background: radial-gradient(circle at center, rgba(250, 243, 236, 0.35) 0%, rgba(250, 243, 236, 0.78) 75%, #FAF3EC 100%);
   pointer-events: none;
   z-index: 2;
 }
