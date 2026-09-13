@@ -468,7 +468,7 @@ body {
    -------------------------------------------------------------------------- */
 .grande-dia-section {
   position: relative;
-  background-color: #FAF8F5;
+  background-color: #FAF3EC;
   overflow: hidden;
 }
 
@@ -476,11 +476,11 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1600&q=80');
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=85');
   background-size: cover;
   background-position: center;
-  opacity: 0.16;
-  filter: contrast(1.15) brightness(1.02);
+  opacity: 0.18;
+  filter: contrast(1.1) brightness(1.04) saturate(1.1);
   pointer-events: none;
   z-index: 1;
 }
@@ -489,7 +489,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(250, 248, 245, 0.45) 0%, rgba(250, 248, 245, 0.82) 75%, #FAF8F5 100%);
+  background: radial-gradient(circle at center, rgba(250, 243, 236, 0.5) 0%, rgba(250, 243, 236, 0.88) 75%, #FAF3EC 100%);
   pointer-events: none;
   z-index: 2;
 }
