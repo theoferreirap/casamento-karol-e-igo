@@ -414,7 +414,7 @@ function initAudioPlayer() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     audioCtx = new AudioContext();
     masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.025, audioCtx.currentTime);
+    masterGain.gain.setValueAtTime(0.008, audioCtx.currentTime); // Volume suave ambiente (< 9%)
     masterGain.connect(audioCtx.destination);
 
     // D major chord progression (D - F#m - Bm - G)
@@ -443,7 +443,7 @@ function initAudioPlayer() {
 
           const now = audioCtx.currentTime;
           noteGain.gain.setValueAtTime(0, now);
-          noteGain.gain.linearRampToValueAtTime(0.02, now + 1.0);
+          noteGain.gain.linearRampToValueAtTime(0.008, now + 1.0);
           noteGain.gain.exponentialRampToValueAtTime(0.0001, now + 4.2);
 
           osc.connect(noteGain);
@@ -465,19 +465,19 @@ function initAudioPlayer() {
     if (statusText) statusText.textContent = 'Duas Metades: Tocando';
 
     if (bgAudio) {
-      bgAudio.volume = 0.20; // Volume suave ambiente (20%)
+      bgAudio.volume = 0.08; // Volume suave ambiente em 8% (< 9%)
       bgAudio.play().then(() => {
-        showToast('Tocando: Duas Metades — Jorge & Mateus');
+        showToast('Tocando: Duas Metades — Jorge & Mateus (Volume Suave)');
       }).catch((err) => {
         console.log('Audio autoplay/source notice:', err);
         if (!audioCtx) createRomanticAtmosphere();
         else if (audioCtx.state === 'suspended') audioCtx.resume();
-        showToast('Tocando: Duas Metades — Jorge & Mateus');
+        showToast('Tocando: Duas Metades — Jorge & Mateus (Volume Suave)');
       });
     } else {
       if (!audioCtx) createRomanticAtmosphere();
       else if (audioCtx.state === 'suspended') audioCtx.resume();
-      showToast('Tocando: Duas Metades — Jorge & Mateus');
+      showToast('Tocando: Duas Metades — Jorge & Mateus (Volume Suave)');
     }
   }
 

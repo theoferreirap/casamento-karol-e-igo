@@ -5,24 +5,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap');
 
 :root {
-  /* Color Palette - Editorial & Luxury */
-  --color-ivory: #FAF8F5;
-  --color-offwhite: #F4EFEB;
-  --color-champagne-light: #EFE8DE;
-  --color-champagne: #E4D7C5;
-  --color-champagne-gold: #C5A880;
-  --color-gold-accent: #B89768;
-  --color-gold-hover: #A07F52;
+  /* Color Palette - Terracotta, Warm Cream & Earth Tones (Convite Oficial) */
+  --color-ivory: #FAF3EC;
+  --color-offwhite: #F4E8DC;
+  --color-champagne-light: #EFE0D2;
+  --color-champagne: #E8D4C2;
+  --color-champagne-gold: #B9744D; /* Terracotta / Rust Signature */
+  --color-terracotta: #B9744D;
+  --color-terracotta-light: #C87D55;
+  --color-terracotta-dark: #9A522C;
+  --color-gold-accent: #B9744D;
+  --color-gold-hover: #9A522C;
   
-  --color-sage-soft: #D9DFD6;
-  --color-olive-muted: #626F5E;
-  --color-olive-dark: #3F4A3B;
+  --color-sage-soft: #D5D6CA;
+  --color-olive-muted: #706E59;
+  --color-olive-dark: #4A4A3A;
   
-  --color-nude: #ECE5DC;
-  --color-stone: #8E867E;
-  --color-espresso: #25201E;
-  --color-charcoal: #36302D;
-  --color-black-soft: #1B1716;
+  --color-nude: #EFE0D2;
+  --color-stone: #7E6C5E;
+  --color-espresso: #211810;
+  --color-charcoal: #2D211A;
+  --color-black-soft: #18120D;
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
@@ -443,17 +446,17 @@ body {
 }
 
 .btn-luxury-solid {
-  background: var(--color-olive-dark);
-  border-color: var(--color-olive-dark);
-  color: #FAF8F5;
+  background: var(--color-terracotta);
+  border-color: var(--color-terracotta);
+  color: #FAF3EC;
 }
 
 .btn-luxury-solid::before {
-  background: var(--color-champagne-gold);
+  background: var(--color-terracotta-dark);
 }
 
 .btn-luxury-solid:hover {
-  border-color: var(--color-champagne-gold);
+  border-color: var(--color-terracotta-dark);
 }
 
 .btn-luxury-solid:hover span {
