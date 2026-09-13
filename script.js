@@ -177,74 +177,38 @@ function initRSVP() {
 }
 
 /* ==========================================================================
-   4. GIFT REGISTRY & EXPERIENCES MODAL
+   4. PRESENTES: COPIAR ENDEREÇO & PIX
    ========================================================================== */
 function initGifts() {
-  const giftModal = document.getElementById('gift-modal');
-  const closeGiftModal = document.getElementById('close-gift-modal');
-  const giftButtons = document.querySelectorAll('.btn-gift');
-  const pixKeyCopyBtn = document.getElementById('copy-pix-btn');
-  const pixKeyInput = document.getElementById('pix-key-input');
-  const giftItemTitle = document.getElementById('gift-modal-item-title');
-  const giftItemValue = document.getElementById('gift-modal-item-val');
-  const giftForm = document.getElementById('gift-form');
-
-  giftButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const title = btn.getAttribute('data-gift-title') || 'Presente Especial';
-      const value = btn.getAttribute('data-gift-value') || 'Valor Livre';
-
-      if (giftItemTitle) giftItemTitle.textContent = title;
-      if (giftItemValue) giftItemValue.textContent = value;
-
-      if (giftModal) giftModal.classList.add('active');
-    });
-  });
-
-  if (closeGiftModal && giftModal) {
-    closeGiftModal.addEventListener('click', () => {
-      giftModal.classList.remove('active');
-    });
-  }
-
-  if (giftModal) {
-    giftModal.addEventListener('click', (e) => {
-      if (e.target === giftModal) giftModal.classList.remove('active');
-    });
-  }
-
-  // Copy Pix Key
-  if (pixKeyCopyBtn && pixKeyInput) {
-    pixKeyCopyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(pixKeyInput.value).then(() => {
-        const originalText = pixKeyCopyBtn.innerHTML;
-        pixKeyCopyBtn.innerHTML = `
-          <svg class="w-4 h-4 text-emerald-600 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg> Chave Copiada!
-        `;
-        showToast('Chave Pix copiada para a área de transferência!');
-        setTimeout(() => {
-          pixKeyCopyBtn.innerHTML = originalText;
-        }, 2500);
-      }).catch(() => {
-        pixKeyInput.select();
-        document.execCommand('copy');
-        showToast('Chave Pix copiada!');
-      });
-    });
-  }
-
-  if (giftForm) {
-    giftForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('Agradecemos de coração pelo seu carinho e generosidade!');
+  window.copyAddressText = function() {
+    const address = "Rua Martinica, 432, Ap 1002 Bloco 1, Santa Branca, Belo Horizonte - MG";
+    navigator.clipboard.writeText(address).then(() => {
+      const btn = document.getElementById('copy-addr-btn');
+      const textSpan = document.getElementById('copy-addr-text');
+      if (textSpan) textSpan.innerHTML = '✓ Endereço Copiado!';
+      showToast('Endereço de entrega copiado para a área de transferência! ✨');
       setTimeout(() => {
-        if (giftModal) giftModal.classList.remove('active');
-        giftForm.reset();
-      }, 1500);
+        if (textSpan) textSpan.innerHTML = 'Copiar Endereço';
+      }, 3000);
+    }).catch(() => {
+      showToast('Rua Martinica, 432, Ap 1002 Bloco 1, Santa Branca - BH');
     });
-  }
+  };
+
+  window.copyPixKeyText = function() {
+    const pixKey = "122.475.946-03";
+    navigator.clipboard.writeText(pixKey).then(() => {
+      const btn = document.getElementById('copy-pix-direct-btn');
+      const textSpan = document.getElementById('copy-pix-direct-text');
+      if (textSpan) textSpan.innerHTML = '✓ Chave Pix Copiada!';
+      showToast('Chave Pix copiada com sucesso! (Karolina Teixeira Fonseca) ✨');
+      setTimeout(() => {
+        if (textSpan) textSpan.innerHTML = 'Copiar Chave Pix';
+      }, 3000);
+    }).catch(() => {
+      showToast('Chave Pix: 122.475.946-03');
+    });
+  };
 }
 
 /* ==========================================================================

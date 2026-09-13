@@ -557,146 +557,88 @@
 
 
   <!-- =========================================================================
-       5. LISTA DE PRESENTES & EXPERIÊNCIAS ("Lista de Presentes")
+       5. QUER NOS PRESENTEAR? (ENDEREÇO & PIX)
        ========================================================================= -->
   <section id="presentes" class="py-28 bg-offwhite/50 relative border-t border-champagne-gold/20">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-5xl mx-auto px-6">
       
+      <!-- Section Header -->
       <div class="text-center mb-16 reveal-on-scroll">
         <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-2">
-          Carinho & Memórias
+          Carinho & Sonhos
         </span>
-        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-light italic mb-4">
-          Lista de Presentes
+        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-espresso font-light italic mb-6">
+          Quer nos presentear? 🥰
         </h2>
-        <p class="text-stone font-light text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-          O maior presente será compartilhar esse momento com vocês. Para aqueles que desejarem nos presentear, preparamos algumas opções e experiências de lua de mel com muito carinho.
-        </p>
-        <div class="luxury-divider">
-          <span class="font-script text-champagne-gold text-2xl">experiências</span>
+        <div class="max-w-2xl mx-auto text-stone font-light text-sm sm:text-base leading-relaxed space-y-3">
+          <p>
+            Não temos uma lista de presentes, porque queremos que vocês fiquem à vontade para nos presentear como preferirem.
+          </p>
+          <p>
+            Se quiser contribuir com um valor para os nossos sonhos, será muito especial para nós. Mas, acima de tudo, queremos vocês ao nosso lado celebrando o grande dia! 💕
+          </p>
+        </div>
+        <div class="luxury-divider mt-6">
+          <span class="font-script text-champagne-gold text-2xl">com amor</span>
         </div>
       </div>
 
-      <!-- Gifts Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-on-scroll">
+      <!-- 2 Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal-on-scroll">
         
-        <!-- Gift 1 -->
-        <div class="gift-card">
-          <div class="gift-img-box">
-            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Jantar Romântico na Costa Amalfitana" loading="lazy">
-            <span class="gift-badge">Lua de Mel</span>
+        <!-- Caixa 1: Endereço para Envio do Presente -->
+        <div class="info-card p-8 sm:p-10 flex flex-col justify-between text-center rounded-sm bg-white border border-champagne-gold/30 shadow-sm hover:border-champagne-gold transition-all">
+          <div>
+            <div class="info-icon-wrapper mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-champagne-gold font-medium block mb-1">
+              Envio Físico
+            </span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-4">
+              Endereço para Presentes
+            </h3>
+            <div class="p-4 bg-ivory rounded border border-champagne-gold/20 text-sm text-stone font-light leading-relaxed mb-6">
+              <strong class="font-medium text-espresso block text-base mb-1">Rua Martinica, 432</strong>
+              Ap 1002 — Bloco 1<br>
+              Bairro Santa Branca<br>
+              Belo Horizonte — MG
+            </div>
           </div>
-          <div class="p-6 flex flex-col justify-between flex-grow">
-            <div>
-              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Jantar à Luz de Velas em Positano</h3>
-              <p class="text-xs text-stone font-light mb-4">Um brinde inesquecível com vista para a Costa Amalfitana.</p>
-            </div>
-            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
-              <span class="font-serif text-lg text-espresso font-medium">R$ 480,00</span>
-              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Jantar à Luz de Velas em Positano" data-gift-value="R$ 480,00">
-                <span>Presentear</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gift 2 -->
-        <div class="gift-card">
-          <div class="gift-img-box">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Passeio de Barco ao Pôr do Sol" loading="lazy">
-            <span class="gift-badge">Experiência</span>
-          </div>
-          <div class="p-6 flex flex-col justify-between flex-grow">
-            <div>
-              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Passeio de Barco ao Pôr do Sol</h3>
-              <p class="text-xs text-stone font-light mb-4">Navegação pelas águas cristalinas de Capri ao entardecer.</p>
-            </div>
-            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
-              <span class="font-serif text-lg text-espresso font-medium">R$ 650,00</span>
-              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Passeio de Barco ao Pôr do Sol" data-gift-value="R$ 650,00">
-                <span>Presentear</span>
-              </button>
-            </div>
+          <div>
+            <button onclick="copyAddressText()" id="copy-addr-btn" class="btn-luxury btn-luxury-solid text-xs py-3.5 px-6 w-full">
+              <span id="copy-addr-text">Copiar Endereço</span>
+            </button>
           </div>
         </div>
 
-        <!-- Gift 3 -->
-        <div class="gift-card">
-          <div class="gift-img-box">
-            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" alt="Café da Manhã de Recém-Casados" loading="lazy">
-            <span class="gift-badge">Romance</span>
-          </div>
-          <div class="p-6 flex flex-col justify-between flex-grow">
-            <div>
-              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Café da Manhã dos Recém-Casados</h3>
-              <p class="text-xs text-stone font-light mb-4">Manhã especial no quarto com frutas frescas e espumante.</p>
+        <!-- Caixa 2: Contribuição via PIX (QR Code & Chave) -->
+        <div class="info-card p-8 sm:p-10 flex flex-col justify-between text-center rounded-sm bg-white border border-champagne-gold/30 shadow-sm hover:border-champagne-gold transition-all">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-champagne-gold font-medium block mb-1">
+              Contribuição dos Sonhos
+            </span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-3">
+              Presente via Pix
+            </h3>
+            
+            <!-- QR Code Oficial -->
+            <div class="p-3 bg-white border border-champagne-gold/30 rounded-sm inline-block mx-auto mb-4 shadow-sm">
+              <img src="pix-qrcode.png" alt="QR Code Pix - Karolina Teixeira Fonseca" class="w-44 h-auto sm:w-48 mx-auto rounded object-contain">
             </div>
-            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
-              <span class="font-serif text-lg text-espresso font-medium">R$ 320,00</span>
-              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Café da Manhã dos Recém-Casados" data-gift-value="R$ 320,00">
-                <span>Presentear</span>
-              </button>
-            </div>
-          </div>
-        </div>
 
-        <!-- Gift 4 -->
-        <div class="gift-card">
-          <div class="gift-img-box">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Ajuda para Nova Casa" loading="lazy">
-            <span class="gift-badge">Nosso Lar</span>
-          </div>
-          <div class="p-6 flex flex-col justify-between flex-grow">
-            <div>
-              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Cota para a Nossa Nova Casa</h3>
-              <p class="text-xs text-stone font-light mb-4">Contribuição carinhosa para montarmos o nosso primeiro lar.</p>
-            </div>
-            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
-              <span class="font-serif text-lg text-espresso font-medium">R$ 800,00</span>
-              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Cota para a Nossa Nova Casa" data-gift-value="R$ 800,00">
-                <span>Presentear</span>
-              </button>
+            <div class="p-3 bg-ivory rounded border border-champagne-gold/20 text-xs text-stone font-light space-y-1 mb-6 text-left sm:text-center">
+              <p><strong class="font-medium text-espresso">Nome:</strong> KAROLINA TEIXEIRA FONSECA</p>
+              <p><strong class="font-medium text-espresso">Chave Pix:</strong> <span class="font-mono font-medium text-espresso">122.475.946-03</span></p>
             </div>
           </div>
-        </div>
 
-        <!-- Gift 5 -->
-        <div class="gift-card">
-          <div class="gift-img-box">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa a Dois" loading="lazy">
-            <span class="gift-badge">Bem-Estar</span>
-          </div>
-          <div class="p-6 flex flex-col justify-between flex-grow">
-            <div>
-              <h3 class="font-serif text-xl text-espresso font-medium mb-1">Dia de Spa & Relaxamento a Dois</h3>
-              <p class="text-xs text-stone font-light mb-4">Massagem relaxante e banho de imersão pós-casamento.</p>
-            </div>
-            <div class="pt-4 border-t border-champagne-gold/20 flex items-center justify-between">
-              <span class="font-serif text-lg text-espresso font-medium">R$ 550,00</span>
-              <button class="btn-gift btn-luxury text-xs py-2 px-4" data-gift-title="Dia de Spa & Relaxamento a Dois" data-gift-value="R$ 550,00">
-                <span>Presentear</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gift 6 (Custom Value) -->
-        <div class="gift-card bg-ivory border-dashed border-champagne-gold/40">
-          <div class="p-8 flex flex-col justify-between flex-grow text-center">
-            <div>
-              <div class="w-12 h-12 rounded-full border border-champagne-gold mx-auto mb-4 flex items-center justify-center text-champagne-gold">
-                <span class="font-serif text-xl">❦</span>
-              </div>
-              <h3 class="font-serif text-2xl text-espresso font-medium mb-2">Contribuição Livre</h3>
-              <p class="text-xs text-stone font-light mb-6">
-                Fique à vontade para presentear com o valor que seu coração desejar via Pix.
-              </p>
-            </div>
-            <div>
-              <button class="btn-gift btn-luxury btn-luxury-solid text-xs py-3 px-6 w-full" data-gift-title="Contribuição Livre aos Noivos" data-gift-value="Valor Livre">
-                <span>Presentear via Pix</span>
-              </button>
-            </div>
+          <div>
+            <button onclick="copyPixKeyText()" id="copy-pix-direct-btn" class="btn-luxury btn-luxury-solid text-xs py-3.5 px-6 w-full">
+              <span id="copy-pix-direct-text">Copiar Chave Pix</span>
+            </button>
           </div>
         </div>
 
@@ -875,79 +817,7 @@
   </div>
 
 
-  <!-- =========================================================================
-       MODAL DE PRESENTE / PIX
-       ========================================================================= -->
-  <div id="gift-modal" class="custom-modal" role="dialog" aria-modal="true">
-    <div class="custom-modal-content text-center">
-      <button id="close-gift-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
 
-      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-1">
-        Presentear os Noivos
-      </span>
-      <h3 id="gift-modal-item-title" class="font-serif text-2xl sm:text-3xl text-espresso font-normal mb-2">
-        Jantar Romântico
-      </h3>
-      <p id="gift-modal-item-val" class="font-serif text-xl text-olive-dark font-medium mb-6">
-        R$ 480,00
-      </p>
-
-      <div class="luxury-divider my-4">
-        <span class="font-script text-champagne-gold text-xl">pix</span>
-      </div>
-
-      <!-- Simulated QR Code -->
-      <div class="bg-white p-4 inline-block border border-champagne-gold/30 shadow-sm mb-4">
-        <svg class="w-36 h-36 mx-auto text-espresso" viewBox="0 0 100 100" fill="currentColor">
-          <!-- Stylized QR Code SVG pattern -->
-          <rect x="0" y="0" width="30" height="30" fill="#25201E"/>
-          <rect x="5" y="5" width="20" height="20" fill="#FFFFFF"/>
-          <rect x="9" y="9" width="12" height="12" fill="#25201E"/>
-          <rect x="70" y="0" width="30" height="30" fill="#25201E"/>
-          <rect x="75" y="5" width="20" height="20" fill="#FFFFFF"/>
-          <rect x="79" y="9" width="12" height="12" fill="#25201E"/>
-          <rect x="0" y="70" width="30" height="30" fill="#25201E"/>
-          <rect x="5" y="75" width="20" height="20" fill="#FFFFFF"/>
-          <rect x="9" y="79" width="12" height="12" fill="#25201E"/>
-          <rect x="40" y="10" width="10" height="10" fill="#25201E"/>
-          <rect x="55" y="20" width="10" height="10" fill="#25201E"/>
-          <rect x="40" y="40" width="20" height="20" fill="#C5A880"/>
-          <rect x="15" y="45" width="10" height="10" fill="#25201E"/>
-          <rect x="75" y="45" width="15" height="10" fill="#25201E"/>
-          <rect x="40" y="75" width="10" height="15" fill="#25201E"/>
-          <rect x="65" y="75" width="25" height="15" fill="#25201E"/>
-        </svg>
-      </div>
-
-      <p class="text-xs text-stone font-light mb-4">
-        Escaneie o QR Code acima no aplicativo do seu banco ou copie a chave Pix:
-      </p>
-
-      <!-- Pix Copy Box -->
-      <div class="flex items-center gap-2 mb-6">
-        <input type="text" id="pix-key-input" readonly value="karolinaeigo.casamento@email.com" class="rsvp-input text-xs text-center py-2 bg-offwhite">
-        <button id="copy-pix-btn" class="btn-luxury btn-luxury-solid text-xs py-2 px-4 whitespace-nowrap">
-          <span>Copiar Pix</span>
-        </button>
-      </div>
-
-      <!-- Gift Message Form -->
-      <form id="gift-form" class="space-y-4 text-left border-t border-champagne-gold/20 pt-4">
-        <div>
-          <label class="rsvp-label">Seu Nome</label>
-          <input type="text" required placeholder="Como deseja ser identificado" class="rsvp-input text-sm">
-        </div>
-        <div>
-          <label class="rsvp-label">Recado Especial aos Noivos</label>
-          <textarea rows="2" placeholder="Deixe seus votos de felicidade..." class="rsvp-input text-sm resize-none"></textarea>
-        </div>
-        <button type="submit" class="btn-luxury btn-luxury-solid w-full text-xs py-3">
-          <span>Confirmar Presente</span>
-        </button>
-      </form>
-
-    </div>
-  </div>
 
 
   <!-- Toast Notice Element -->
