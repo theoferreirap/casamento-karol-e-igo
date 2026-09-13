@@ -134,30 +134,30 @@
       </h1>
     </div>
 
-    <!-- Form: Adicionar Novo Momento -->
+    <!-- Form: Adicionar Foto ao Álbum -->
     <div class="admin-card p-6 sm:p-10 rounded-sm">
       <div class="border-b border-champagne-gold/20 pb-4 mb-6 flex items-center justify-between">
         <h2 class="font-serif text-2xl text-espresso font-medium flex items-center gap-2">
-          <span>Adicionar Novo Momento</span>
+          <span>Adicionar Foto ao Álbum</span>
         </h2>
-        <span class="text-[11px] uppercase tracking-widest text-stone">Upload Direto Vercel Blob</span>
+        <span class="text-[11px] uppercase tracking-widest text-stone">Galeria de Fotos</span>
       </div>
 
       <form id="add-moment-form" class="space-y-6">
         
         <!-- Image Drag & Drop -->
         <div>
-          <label class="rsvp-label">Fotografia do Momento *</label>
-          <div id="dropzone" class="dropzone p-8 text-center cursor-pointer rounded-sm">
+          <label class="rsvp-label">Selecione a Fotografia *</label>
+          <div id="dropzone" class="dropzone p-8 sm:p-12 text-center cursor-pointer rounded-sm hover:border-champagne-gold transition-all">
             <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/heic" class="hidden">
             
             <div id="dropzone-prompt">
-              <div class="w-12 h-12 rounded-full border border-champagne-gold/40 mx-auto mb-3 flex items-center justify-center text-champagne-gold">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-14 h-14 rounded-full border border-champagne-gold/40 mx-auto mb-4 flex items-center justify-center text-champagne-gold bg-ivory">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
               </div>
-              <p class="text-sm font-medium text-espresso mb-1">
+              <p class="text-sm sm:text-base font-medium text-espresso mb-1">
                 Clique para escolher ou arraste a foto aqui
               </p>
               <p class="text-xs text-stone font-light">
@@ -166,9 +166,9 @@
             </div>
 
             <!-- Preview State -->
-            <div id="dropzone-preview" class="hidden relative max-w-xs mx-auto">
-              <img id="preview-img" src="" alt="Prévia" class="rounded border border-champagne-gold/40 max-h-64 object-cover mx-auto shadow-sm">
-              <button type="button" id="remove-file-btn" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1.5 shadow hover:bg-red-700 transition-colors" title="Trocar imagem">
+            <div id="dropzone-preview" class="hidden relative max-w-sm mx-auto">
+              <img id="preview-img" src="" alt="Prévia da Foto" class="rounded border border-champagne-gold/40 max-h-72 object-cover mx-auto shadow-md">
+              <button type="button" id="remove-file-btn" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-2 shadow-lg hover:bg-red-700 transition-colors" title="Trocar imagem">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
@@ -177,31 +177,11 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Moment Title -->
-          <div>
-            <label for="moment-title" class="rsvp-label">Título do Momento (Opcional)</label>
-            <input type="text" id="moment-title" placeholder="Ex: Nosso primeiro passeio, Viagem inesquecível..." class="rsvp-input">
-          </div>
-
-          <!-- Moment Date / Year -->
-          <div>
-            <label for="moment-date" class="rsvp-label">Ano / Data (Opcional)</label>
-            <input type="text" id="moment-date" placeholder="Ex: 2021, Outubro de 2022..." class="rsvp-input">
-          </div>
-        </div>
-
-        <!-- Moment Caption -->
-        <div>
-          <label for="moment-caption" class="rsvp-label">Legenda / Pequeno Texto da História (Opcional)</label>
-          <textarea id="moment-caption" rows="3" placeholder="Escreva sobre esse momento, uma frase de carinho ou memória especial..." class="rsvp-input resize-none"></textarea>
-        </div>
-
         <!-- Submit Button -->
         <div class="pt-2 flex items-center justify-between">
           <span id="upload-status" class="text-xs text-stone font-light italic"></span>
           <button type="submit" id="submit-moment-btn" class="btn-luxury btn-luxury-solid py-3.5 px-8 text-xs">
-            <span id="submit-btn-text">Publicar no Álbum</span>
+            <span id="submit-btn-text">Publicar Foto no Álbum</span>
           </button>
         </div>
 
@@ -210,78 +190,33 @@
 
 
     <!-- =========================================================================
-         LISTA DE MOMENTOS JÁ CADASTRADOS (ORDENAÇÃO & EXCLUSÃO)
+         LISTA DE FOTOS DO ÁLBUM (ORDENAÇÃO & EXCLUSÃO)
          ========================================================================= -->
     <div class="admin-card p-6 sm:p-10 rounded-sm">
       <div class="border-b border-champagne-gold/20 pb-4 mb-6 flex items-center justify-between">
         <div>
           <h2 class="font-serif text-2xl text-espresso font-medium">
-            Momentos Publicados no Álbum
+            Fotos Publicadas no Álbum
           </h2>
           <p class="text-xs text-stone font-light">
-            Use as setas para reorganizar a ordem de exibição no site.
+            Use as setas para reorganizar a ordem de exibição no site ou exclua fotos.
           </p>
         </div>
-        <span id="moments-count-badge" class="px-3 py-1 bg-offwhite border border-champagne-gold/30 text-xs text-espresso rounded-full">
+        <span id="moments-count-badge" class="px-3 py-1 bg-offwhite border border-champagne-gold/30 text-xs text-espresso rounded-full font-medium">
           0 fotos
         </span>
       </div>
 
-      <!-- Moments List -->
+      <!-- Photos List -->
       <div id="moments-list" class="space-y-4">
         <!-- Rendered dynamically -->
         <div class="text-center py-12 text-stone font-light text-sm">
-          Carregando momentos do álbum...
+          Carregando fotos do álbum...
         </div>
       </div>
     </div>
 
   </main>
-
-
-  <!-- =========================================================================
-       MODAL DE EDIÇÃO DE MOMENTO
-       ========================================================================= -->
-  <div id="edit-modal" class="custom-modal" role="dialog" aria-modal="true">
-    <div class="custom-modal-content text-left max-w-lg">
-      <button id="close-edit-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
-      
-      <span class="text-xs uppercase tracking-ultra text-champagne-gold font-medium block mb-1">
-        Edição
-      </span>
-      <h3 class="font-serif text-2xl text-espresso font-light italic mb-6">
-        Editar Momento
-      </h3>
-
-      <form id="edit-moment-form" class="space-y-4">
-        <input type="hidden" id="edit-moment-id">
-        
-        <div>
-          <label for="edit-title" class="rsvp-label">Título do Momento</label>
-          <input type="text" id="edit-title" class="rsvp-input">
-        </div>
-
-        <div>
-          <label for="edit-date" class="rsvp-label">Ano / Data</label>
-          <input type="text" id="edit-date" class="rsvp-input">
-        </div>
-
-        <div>
-          <label for="edit-caption" class="rsvp-label">Legenda</label>
-          <textarea id="edit-caption" rows="3" class="rsvp-input resize-none"></textarea>
-        </div>
-
-        <div class="pt-4 flex items-center justify-end space-x-3">
-          <button type="button" onclick="document.getElementById('edit-modal').classList.remove('active')" class="text-xs uppercase tracking-widest text-stone hover:text-espresso py-2 px-4">
-            Cancelar
-          </button>
-          <button type="submit" id="save-edit-btn" class="btn-luxury btn-luxury-solid py-2.5 px-6 text-xs">
-            <span>Salvar Alterações</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <script src="admin.js"></script>
 </body>

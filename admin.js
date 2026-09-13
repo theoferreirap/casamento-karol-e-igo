@@ -1,4 +1,4 @@
-// Admin Dashboard JavaScript for Igo & Karolina - Um Pouco de Nós
+// Admin Dashboard JavaScript for Igo & Karolina - Um Pouco de Nós (Apenas Fotos)
 document.addEventListener('DOMContentLoaded', () => {
   const loginSection = document.getElementById('login-section');
   const dashboardSection = document.getElementById('dashboard-section');
@@ -13,32 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropzonePreview = document.getElementById('dropzone-preview');
   const previewImg = document.getElementById('preview-img');
   const removeFileBtn = document.getElementById('remove-file-btn');
-  const momentTitle = document.getElementById('moment-title');
-  const momentDate = document.getElementById('moment-date');
-  const momentCaption = document.getElementById('moment-caption');
   const submitBtn = document.getElementById('submit-moment-btn');
   const submitBtnText = document.getElementById('submit-btn-text');
   const uploadStatus = document.getElementById('upload-status');
   const momentsList = document.getElementById('moments-list');
   const momentsCountBadge = document.getElementById('moments-count-badge');
 
-  const editModal = document.getElementById('edit-modal');
-  const closeEditModalBtn = document.getElementById('close-edit-modal');
-  const editForm = document.getElementById('edit-moment-form');
-  const editIdInput = document.getElementById('edit-moment-id');
-  const editTitleInput = document.getElementById('edit-title');
-  const editDateInput = document.getElementById('edit-date');
-  const editCaptionInput = document.getElementById('edit-caption');
-
   const DEFAULT_PRESET_MOMENTS = [
-    { id: 'moment-1', imageUrl: 'foto-1.jpg', title: 'O Começo de Tudo', date: '2021', caption: 'Tudo começou no Dia dos Namorados. Um encontro inesperado que transformou nossas vidas para sempre.', order: 1 },
-    { id: 'moment-2', imageUrl: 'foto-2.jpg', title: 'Nossos Momentos & Viagens', date: '2022', caption: 'Cada lugar visitado e cada risada compartilhada nos uniu ainda mais em um único propósito.', order: 2 },
-    { id: 'moment-3', imageUrl: 'foto-3.jpg', title: 'Sorrisos & Cumplicidade', date: '2022', caption: 'A leveza de estarmos juntos e a certeza diária de estarmos no caminho certo.', order: 3 },
-    { id: 'moment-4', imageUrl: 'foto-4.jpg', title: 'Dias Inesquecíveis', date: '2023', caption: 'Conversas que não tinham fim, planos traçados e sonhos divididos com o coração aberto.', order: 4 },
-    { id: 'moment-5', imageUrl: 'foto-5.jpg', title: 'Construindo Nossa História', date: '2023', caption: 'Passo a passo, fortalecendo e consolidando o amor mais bonito e sincero de nossas vidas.', order: 5 },
-    { id: 'moment-6', imageUrl: 'foto-6.jpg', title: 'Lado a Lado', date: '2024', caption: 'A felicidade em compartilhar a rotina, os pequenos detalhes e as grandes conquistas.', order: 6 },
-    { id: 'moment-7', imageUrl: 'foto-7.jpg', title: 'A Certeza do Amor', date: '2024', caption: 'O amor que amadureceu e a vontade infinita de viver uma vida inteira juntos.', order: 7 },
-    { id: 'moment-8', imageUrl: 'foto-8.jpg', title: 'O Pedido & O Nosso Sim', date: '2024', caption: 'Quando o coração falou mais alto e o sim foi dito com toda a certeza e emoção do mundo! 💍', order: 8 }
+    { id: 'moment-1', imageUrl: 'foto-1.jpg', order: 1 },
+    { id: 'moment-2', imageUrl: 'foto-2.jpg', order: 2 },
+    { id: 'moment-3', imageUrl: 'foto-3.jpg', order: 3 },
+    { id: 'moment-4', imageUrl: 'foto-4.jpg', order: 4 },
+    { id: 'moment-5', imageUrl: 'foto-5.jpg', order: 5 },
+    { id: 'moment-6', imageUrl: 'foto-6.jpg', order: 6 },
+    { id: 'moment-7', imageUrl: 'foto-7.jpg', order: 7 },
+    { id: 'moment-8', imageUrl: 'foto-8.jpg', order: 8 }
   ];
 
   let currentMoments = [];
@@ -128,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showDashboard();
         loadMoments();
       } else {
-        showToast('Senha incorreta. Tente "karol2027" ou "karol2026".', 'error');
+        showToast('Senha incorreta. Tente "karol2027" ou "igo2027".', 'error');
       }
     } catch (err) {
       showToast('Erro ao autenticar. Tente novamente.', 'error');
@@ -261,12 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return await fileToBase64(file);
   }
 
-  // Add Moment Form Submit
+  // Add Moment Form Submit (Photo Only)
   addForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!selectedFile) {
-      showToast('Por favor, selecione uma foto para o momento.', 'error');
+      showToast('Por favor, selecione uma foto para publicar.', 'error');
       return;
     }
 
@@ -277,15 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const imageUrl = await uploadFileToBlob(selectedFile);
 
-      submitBtnText.textContent = 'Salvando momento...';
+      submitBtnText.textContent = 'Salvando no álbum...';
       uploadStatus.textContent = 'Publicando no álbum...';
 
       const newMoment = {
         id: 'moment-' + Date.now(),
         imageUrl,
-        title: momentTitle.value.trim(),
-        date: momentDate.value.trim(),
-        caption: momentCaption.value.trim(),
         order: currentMoments.length + 1,
         createdAt: new Date().toISOString()
       };
@@ -310,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentMoments.push(newMoment);
       saveMomentsLocally(currentMoments);
 
-      showToast('Foto e história publicadas com sucesso!');
+      showToast('Foto adicionada ao álbum com sucesso!');
       
       // Reset form
       addForm.reset();
@@ -322,10 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
       renderMomentsList(currentMoments);
     } catch (err) {
       console.error(err);
-      showToast('Erro ao publicar momento: ' + (err.message || 'Tente novamente.'), 'error');
+      showToast('Erro ao publicar foto: ' + (err.message || 'Tente novamente.'), 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtnText.textContent = 'Publicar no Álbum';
+      submitBtnText.textContent = 'Publicar Foto no Álbum';
       uploadStatus.textContent = '';
     }
   });
@@ -364,14 +350,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Render Moments in Dashboard
+  // Render Moments in Dashboard (Photos Only)
   function renderMomentsList(moments) {
     momentsCountBadge.textContent = `${moments.length} foto${moments.length === 1 ? '' : 's'}`;
 
     if (moments.length === 0) {
       momentsList.innerHTML = `
         <div class="text-center py-12 text-stone font-light text-sm">
-          Nenhum momento cadastrado ainda. Use o formulário acima para publicar a primeira foto!
+          Nenhuma foto cadastrada ainda. Selecione uma foto acima para publicar!
         </div>
       `;
       return;
@@ -380,41 +366,36 @@ document.addEventListener('DOMContentLoaded', () => {
     momentsList.innerHTML = moments.map((m, index) => `
       <div class="p-4 sm:p-5 bg-ivory border border-champagne-gold/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-sm transition-all hover:border-champagne-gold/50">
         
-        <!-- Thumbnail & Info -->
+        <!-- Thumbnail & Order Badge -->
         <div class="flex items-center gap-4 min-w-0">
-          <span class="font-serif text-lg text-champagne-gold font-medium w-6 text-center">
-            ${index + 1}
+          <span class="font-serif text-lg text-champagne-gold font-medium w-8 text-center bg-white py-1 rounded border border-champagne-gold/20 shadow-xs">
+            #${index + 1}
           </span>
-          <img src="${m.imageUrl}" alt="${m.title || 'Foto'}" class="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded border border-champagne-gold/30 flex-shrink-0">
+          <img src="${m.imageUrl}" alt="Foto ${index + 1}" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded border border-champagne-gold/30 flex-shrink-0 shadow-sm">
           
           <div class="min-w-0">
-            <h4 class="font-serif text-lg sm:text-xl text-espresso font-medium truncate">
-              ${m.title || 'Sem título'}
-            </h4>
-            ${m.date ? `<span class="text-xs uppercase tracking-widest text-champagne-gold font-medium block">${m.date}</span>` : ''}
-            <p class="text-xs text-stone font-light line-clamp-2 mt-0.5">
-              ${m.caption || 'Sem legenda'}
-            </p>
+            <span class="font-serif text-lg sm:text-xl text-espresso font-medium block">
+              Foto #${index + 1}
+            </span>
+            <span class="text-xs text-stone font-light block">
+              Posição ${index + 1} na galeria do site
+            </span>
           </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="flex items-center gap-2 self-end sm:self-center flex-shrink-0">
           <!-- Move Up -->
-          <button onclick="moveMoment(${index}, -1)" ${index === 0 ? 'disabled' : ''} class="p-2 border border-champagne-gold/30 rounded hover:bg-white text-stone hover:text-espresso disabled:opacity-30 disabled:cursor-not-allowed" title="Mover para cima">
+          <button onclick="moveMoment(${index}, -1)" ${index === 0 ? 'disabled' : ''} class="p-2.5 border border-champagne-gold/30 rounded hover:bg-white text-stone hover:text-espresso disabled:opacity-30 disabled:cursor-not-allowed transition-all" title="Mover para cima">
             ▲
           </button>
           <!-- Move Down -->
-          <button onclick="moveMoment(${index}, 1)" ${index === moments.length - 1 ? 'disabled' : ''} class="p-2 border border-champagne-gold/30 rounded hover:bg-white text-stone hover:text-espresso disabled:opacity-30 disabled:cursor-not-allowed" title="Mover para baixo">
+          <button onclick="moveMoment(${index}, 1)" ${index === moments.length - 1 ? 'disabled' : ''} class="p-2.5 border border-champagne-gold/30 rounded hover:bg-white text-stone hover:text-espresso disabled:opacity-30 disabled:cursor-not-allowed transition-all" title="Mover para baixo">
             ▼
           </button>
-          <!-- Edit -->
-          <button onclick="openEditModal('${m.id}')" class="px-3 py-1.5 border border-champagne-gold/40 rounded text-xs uppercase tracking-wider hover:bg-white text-espresso transition-colors">
-            Editar
-          </button>
           <!-- Delete -->
-          <button onclick="deleteMoment('${m.id}')" class="px-3 py-1.5 border border-red-200 text-red-700 hover:bg-red-50 rounded text-xs uppercase tracking-wider transition-colors">
-            Excluir
+          <button onclick="deleteMoment('${m.id}', ${index + 1})" class="px-3.5 py-2 border border-red-200 text-red-700 hover:bg-red-50 rounded text-xs uppercase tracking-wider transition-colors">
+            Excluir Foto
           </button>
         </div>
 
@@ -447,71 +428,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     } catch (e) {}
 
-    showToast('Ordem do álbum atualizada!');
+    showToast('Ordem das fotos atualizada!');
   };
-
-  // Open Edit Modal
-  window.openEditModal = function(id) {
-    const moment = currentMoments.find(m => m.id === id);
-    if (!moment) return;
-
-    editIdInput.value = moment.id;
-    editTitleInput.value = moment.title || '';
-    editDateInput.value = moment.date || '';
-    editCaptionInput.value = moment.caption || '';
-
-    editModal.classList.add('active');
-  };
-
-  closeEditModalBtn.addEventListener('click', () => {
-    editModal.classList.remove('active');
-  });
-
-  // Save Edit Form
-  editForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const id = editIdInput.value;
-    const title = editTitleInput.value.trim();
-    const date = editDateInput.value.trim();
-    const caption = editCaptionInput.value.trim();
-
-    const saveBtn = document.getElementById('save-edit-btn');
-    saveBtn.disabled = true;
-    saveBtn.innerHTML = '<span>Salvando...</span>';
-
-    const index = currentMoments.findIndex(m => m.id === id);
-    if (index !== -1) {
-      currentMoments[index].title = title;
-      currentMoments[index].date = date;
-      currentMoments[index].caption = caption;
-      saveMomentsLocally(currentMoments);
-    }
-
-    try {
-      await fetch('/api/moments', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`
-        },
-        body: JSON.stringify({ id, title, date, caption })
-      });
-    } catch (err) {}
-
-    showToast('Momento atualizado com sucesso!');
-    editModal.classList.remove('active');
-    renderMomentsList(currentMoments);
-
-    saveBtn.disabled = false;
-    saveBtn.innerHTML = '<span>Salvar Alterações</span>';
-  });
 
   // Delete Moment
-  window.deleteMoment = async function(id) {
-    const moment = currentMoments.find(m => m.id === id);
-    const title = moment?.title ? `"${moment.title}"` : 'este momento';
-
-    if (!confirm(`Tem certeza que deseja excluir ${title} do álbum?`)) {
+  window.deleteMoment = async function(id, photoNum) {
+    if (!confirm(`Tem certeza que deseja excluir a Foto #${photoNum} do álbum?`)) {
       return;
     }
 
@@ -531,6 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     } catch (err) {}
 
-    showToast('Momento excluído do álbum!');
+    showToast('Foto excluída com sucesso!');
   };
 });
