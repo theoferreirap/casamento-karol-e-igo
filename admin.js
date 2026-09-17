@@ -1,3 +1,5 @@
+import { upload } from './blob-client.js';
+
 // Admin Dashboard JavaScript for Igo & Karolina - Um Pouco de Nós (Apenas Fotos)
 document.addEventListener('DOMContentLoaded', () => {
   const loginSection = document.getElementById('login-section');
@@ -84,43 +86,24 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.innerHTML = '<span>Verificando...</span>';
 
     try {
-      // 1. Try server verification
-      let serverOk = false;
-      try {
-        const res = await fetch('/api/auth', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password })
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data.token) {
-            authToken = data.token;
-            serverOk = true;
-          }
-        }
-      } catch (netErr) {
-        console.log('Serverless auth offline, checking client fallback');
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.token) {
+        throw new Error(data.error || 'Não foi possível autenticar no servidor.');
       }
 
-      // 2. Client fallback verification
-      const validPasswords = ['karol2027', 'karol&igo2027', 'karolina2027', 'igo2027', 'karol2026', 'karol&igo2026', 'karolina2026', 'igo2026', '123456'];
-      const passClean = password.toLowerCase().replace(/\s+/g, '');
-      const isClientValid = validPasswords.includes(passClean);
-
-      if (serverOk || isClientValid) {
-        if (!authToken) {
-          authToken = 'session_' + Date.now();
-        }
-        localStorage.setItem('wedding_admin_token', authToken);
-        showToast('Login realizado com sucesso!');
-        showDashboard();
-        loadMoments();
-      } else {
-        showToast('Senha incorreta. Tente "karol2027" ou "igo2027".', 'error');
-      }
+      authToken = data.token;
+      localStorage.setItem('wedding_admin_token', authToken);
+      showToast('Login realizado com sucesso!');
+      showDashboard();
+      loadMoments();
     } catch (err) {
-      showToast('Erro ao autenticar. Tente novamente.', 'error');
+      showToast(err.message || 'Erro ao autenticar. Tente novamente.', 'error');
     } finally {
       btn.disabled = false;
       btn.innerHTML = '<span>Entrar no Painel</span>';
@@ -198,56 +181,24 @@ document.addEventListener('DOMContentLoaded', () => {
     dropzonePreview.classList.add('hidden');
   });
 
-  // Convert File to Base64
-  function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  }
-
-  // Upload to Vercel Blob directly or Base64 fallback
+  // Upload directly to Vercel Blob
   async function uploadFileToBlob(file) {
-    try {
-      const response = await fetch(`/api/upload`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`
-        },
-        body: JSON.stringify({
-          type: 'blob.generate-client-token',
-          payload: {
-            pathname: `um-pouco-de-nos/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`,
-            callbackUrl: window.location.origin + '/api/upload',
-            clientPayload: JSON.stringify({ token: authToken })
-          }
-        })
-      });
-
-      if (response.ok) {
-        const json = await response.json();
-        if (json && json.url) {
-          const uploadRes = await fetch(json.url, {
-            method: 'PUT',
-            headers: {
-              'x-amz-acl': 'public-read',
-              'Content-Type': file.type
-            },
-            body: file
-          });
-          if (uploadRes.ok) {
-            return json.url.split('?')[0];
-          }
-        }
+    const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+    const blob = await upload(
+      `um-pouco-de-nos/${Date.now()}-${safeName}`,
+      file,
+      {
+        access: 'public',
+        handleUploadUrl: '/api/upload',
+        clientPayload: JSON.stringify({ token: authToken })
       }
-    } catch (e) {
-      console.log('Blob upload unavailable, falling back to local encoding:', e);
+    );
+
+    if (!blob || !blob.url) {
+      throw new Error('O Vercel Blob não retornou a URL da foto.');
     }
 
-    return await fileToBase64(file);
+    return blob.url;
   }
 
   // Add Moment Form Submit (Photo Only)
@@ -276,24 +227,21 @@ document.addEventListener('DOMContentLoaded', () => {
         createdAt: new Date().toISOString()
       };
 
-      // Try server save
-      let savedOnServer = false;
-      try {
-        const res = await fetch('/api/moments', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${authToken}`
-          },
-          body: JSON.stringify(newMoment)
-        });
-        if (res.ok) savedOnServer = true;
-      } catch (err) {
-        console.log('Server save unavailable, saving locally:', err);
+      const res = await fetch('/api/moments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify(newMoment)
+      });
+
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(result.error || 'A foto foi enviada, mas não foi salva no álbum.');
       }
 
-      // Save locally to ensure persistence everywhere
-      currentMoments.push(newMoment);
+      currentMoments.push(result.moment || newMoment);
       saveMomentsLocally(currentMoments);
 
       showToast('Foto adicionada ao álbum com sucesso!');
@@ -408,6 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetIndex = index + direction;
     if (targetIndex < 0 || targetIndex >= currentMoments.length) return;
 
+    const previousMoments = currentMoments.map(moment => ({ ...moment }));
     const temp = currentMoments[index];
     currentMoments[index] = currentMoments[targetIndex];
     currentMoments[targetIndex] = temp;
@@ -418,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMomentsList(currentMoments);
 
     try {
-      await fetch('/api/moments', {
+      const res = await fetch('/api/moments', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -426,9 +375,15 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({ moments: currentMoments })
       });
-    } catch (e) {}
-
-    showToast('Ordem das fotos atualizada!');
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(result.error || 'Não foi possível salvar a nova ordem.');
+      showToast('Ordem das fotos atualizada!');
+    } catch (err) {
+      currentMoments = previousMoments;
+      saveMomentsLocally(currentMoments);
+      renderMomentsList(currentMoments);
+      showToast(err.message || 'Não foi possível salvar a nova ordem.', 'error');
+    }
   };
 
   // Delete Moment
@@ -437,13 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    currentMoments = currentMoments.filter(m => m.id !== id);
-    currentMoments.forEach((m, idx) => m.order = idx + 1);
-    saveMomentsLocally(currentMoments);
-    renderMomentsList(currentMoments);
-
     try {
-      await fetch('/api/moments', {
+      const res = await fetch('/api/moments', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -451,8 +401,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({ id })
       });
-    } catch (err) {}
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(result.error || 'Não foi possível excluir a foto.');
 
-    showToast('Foto excluída com sucesso!');
+      currentMoments = currentMoments.filter(m => m.id !== id);
+      currentMoments.forEach((m, idx) => m.order = idx + 1);
+      saveMomentsLocally(currentMoments);
+      renderMomentsList(currentMoments);
+      showToast('Foto excluída com sucesso!');
+    } catch (err) {
+      showToast(err.message || 'Não foi possível excluir a foto.', 'error');
+    }
   };
 });
